@@ -14,10 +14,6 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 */
 	private static final int ELEGIRDIF = 3;
 	/**
-	 * Salud del NPC.
-	 */
-	private int salud;
-	/**
 	 * Dificultad aleatoria NPC.
 	 */
 	private static final int DIFICULTADALEATORIA = -1;
@@ -77,7 +73,7 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 * que produce una variación en los atributos.
 	 */
 	public NonPlayableCharacter(final String nombre, final int nivel, final int dificultadNPC) {
-		super(0, 0, nivel, nombre);
+		super(0, 0, 0, nivel, nombre);
 
 		int dificultad;
 		if (dificultadNPC == DIFICULTADALEATORIA) {

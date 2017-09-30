@@ -9,6 +9,15 @@ import java.util.ArrayList;
  */
 public abstract class MadreDeTodo {
 
+	
+	/**
+	 * Salud del personaje.
+	 */
+	protected int salud;
+	/**
+	 * Salud tope del Personaje.
+	 */
+	protected int saludTope;
 	/**
 	 * Fuerza que recibira el personaje o npc.
 	 */
@@ -47,9 +56,11 @@ public abstract class MadreDeTodo {
 	 * @param nombre valor otorgado por
 	 * el constructor de NPC o Personaje.
 	 */
-	public MadreDeTodo(final int fuerza, final int defensa, final int nivel, final String nombre) {
+	public MadreDeTodo(final int fuerza, final int defensa, final int saludTope, final int nivel, final String nombre) {
 		this.fuerza = fuerza;
 		this.defensa = defensa;
+		this.saludTope = saludTope;
+		salud = saludTope;
 		this.nivel = nivel;
 		this.nombre = nombre;
 		this.random = new MyRandom();

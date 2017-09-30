@@ -11,10 +11,7 @@ import javax.swing.DefaultListModel;
  */
 
 public abstract class Personaje extends MadreDeTodo implements Peleable, Serializable {
-	/**
-	 * Salud del personaje.
-	 */
-	private int salud;
+	
 	/**
 	 * Energia del personaje.
 	 */
@@ -135,10 +132,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * Nombre de la Raza del Personaje.
 	 */
 	private String nombreRaza;
-	/**
-	 * Salud tope del Personaje.
-	 */
-	private int saludTope;
+	
 	/**
 	 * Energia tope del Personaje.
 	 */
@@ -225,7 +219,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * @param id Identificador del personaje
 	 */
 	public Personaje(final String nombre, final Casta casta, final int id) {
-		super(FUERZAINICIAL, DEFENSAINICIAL, NIVELINICIAL, nombre);
+		super(FUERZAINICIAL, DEFENSAINICIAL, SALUDTOPEINICIAL, NIVELINICIAL, nombre);
 
 
 		this.casta = casta;
@@ -233,7 +227,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		experiencia = EXPERIENCIAINICIAL;
 		inteligencia = INTELIGENCIANICIAL;
 		destreza = DESTREZAINICIAL;
-		saludTope = SALUDTOPEINICIAL;
 		energiaTope = ENERGIATOPEINICIAL;
 		aumentarEnergiaTope(getEnergiaBonus());
 		aumentarSaludTope(getSaludBonus());
@@ -246,7 +239,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		habilidadesCasta = casta.getHabilidadesCasta();
 		x = POSXI;
 		y = POSYI;
-		salud = saludTope;
 
 		energia = energiaTope;
 		ataque = this.calcularPuntosDeAtaque();
@@ -276,9 +268,8 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 			final int destreza, final int inteligencia, final Casta casta,
 			final int experiencia, final int nivel,
 			final int idPersonaje) {
-		super(fuerza, 0, nivel, nombre);
+		super(fuerza, 0, salud, nivel, nombre);
 
-		this.salud = salud;
 		this.energia = energia;
 
 		this.destreza = destreza;
@@ -289,7 +280,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		this.experiencia = experiencia;
 
 
-		this.saludTope = this.salud;
 		this.energiaTope = this.energia;
 
 		this.idPersonaje = idPersonaje;
