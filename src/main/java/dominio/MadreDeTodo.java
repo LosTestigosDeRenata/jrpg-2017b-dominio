@@ -10,6 +10,15 @@ import java.util.ArrayList;
 public abstract class MadreDeTodo {
 
 	/**
+	 * Posicion en X.
+	 */
+	protected int x;
+	/**
+	 * Posicion en Y.
+	 */
+	protected int y;
+	
+	/**
 	 * Fuerza que recibira el personaje o npc.
 	 */
 	private int fuerza;

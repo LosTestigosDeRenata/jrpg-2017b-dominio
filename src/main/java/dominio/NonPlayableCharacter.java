@@ -66,6 +66,10 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 */
 	private static final int MULTIPLICADORD = 1;
 
+	// Estos se los agrego de momento para ver si funciona la batalla, a futuro vemos si quedan
+	private String nombreRaza;
+	private int saludTope;
+
 	/**
 	 * Constructor de la Clase.
 	 * Dependiendo de la dificultad que se pasa por parámetro al
@@ -88,7 +92,7 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 
 		this.aumentarFuerza(MODIFICADORBASEF * (dificultad + 1) +
 				(nivel - 1) * MULTIPLICADORF * (dificultad + 1));
-		this.salud = MODIFICADORBASES * (dificultad + 1) + (nivel - 1) * MULTIPLICADORS * (dificultad + 1);
+		this.saludTope = this.salud = MODIFICADORBASES * (dificultad + 1) + (nivel - 1) * MULTIPLICADORS * (dificultad + 1);
 		this.aumentarDefensa(MODIFICADORBASED * (dificultad + 1) +
 				(nivel - 1) * MULTIPLICADORD * (dificultad + 1));
 	}
@@ -211,6 +215,26 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	@Override
 	public final int getMagia() {
 		return 0;
+	}
+	
+	public String getNombreRaza()
+	{
+		return nombreRaza;
+	}
+
+	public void setNombreRaza(String nombreRaza)
+	{
+		this.nombreRaza = nombreRaza;
+	}
+
+	public int getSaludTope()
+	{
+		return saludTope;
+	}
+
+	public void setSaludTope(int saludTope)
+	{
+		this.saludTope = saludTope;
 	}
 }
 

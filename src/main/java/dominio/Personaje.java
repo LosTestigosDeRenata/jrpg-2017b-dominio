@@ -124,6 +124,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	private static final int POSYI = 0;
 	/**
+	 * Puntos de skill.
+	 */
+	private int puntosSkill;
+	/**
 	 * Ataque del personaje.
 	 */
 	private int ataque;
@@ -155,14 +159,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * Casta del Personaje.
 	 */
 	private Casta casta;
-	/**
-	 * Posicion en X del Personaje.
-	 */
-	private int x;
-	/**
-	 * Posicion en Y del Personaje.
-	 */
-	private int y;
 	/**
 	 * Experiencia del Personaje.
 	 */
@@ -298,9 +294,23 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		this.magia = this.calcularPuntosDeMagia();
 	}
 
-
-
-
+	/**Retorna un entero con los puntos de skill del personaje.
+	 * @return puntos skill del personaje.
+	 */
+	public final int getPuntosSkill ()
+	{
+		return puntosSkill;
+	}
+	
+	/**Metodo void que sobreescribe el atributo de puntos skill
+	 * con el parametro enviado.
+	 * @param puntosSkill la cantidad de puntos a asignar.
+	 */
+	public final void setPuntosSkill (int puntos)
+	{
+		puntosSkill = puntos;
+	}
+	
 	/**Retorna un entero con el ataque del personaje.
 	 * @return ataque del personaje.
 	 */
@@ -319,7 +329,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		this.ataque = ataque;
 	}
 
-	/**Retorna un enetro con la magia del personaje.
+	/**Retorna un entero con la magia del personaje.
 	 * @return Magia del personaje.
 	 */
 
@@ -417,16 +427,17 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	public final int getEnergiaTope() {
 		return energiaTope;
 	}
+	
 	/**
 	 * Método que retorna un entero.
-	 * Dpendiendo del resultado de las comparaciones entre
+	 * Dependiendo del resultado de las comparaciones entre
 	 *  el Personaje llamador y el argumento que puede ser instancia
 	 *  de Personaje o de NPC (NonPlayableCharacter)
 	 * La probabilidad de golpe critico depende de la casta del Personaje
 	 * y de la destreza del mismo. Si la probabilidad junto con la
 	 * destreza es mayor o igual al número generado de manera aleatoria
 	 * entonces se atacará con golpe crítico, de lo contrario
-	 * sera atacado con el valor del atributo ataque.
+	 * será atacado con el valor del atributo ataque.
 	 * @param atacado Instancia de Persona o NPC la cual será atacada
 	 * @return Retorna si el ataque fue realizado con éxito o no.
 	 */
