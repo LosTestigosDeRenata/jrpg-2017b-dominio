@@ -148,7 +148,7 @@ public class TestPersonajeNuevo {
 	@Test
 	public void testGetIdPersonaje() {
 		Personaje p1 = new Humano("Ben Affleck",new Asesino(),2);
-		Assert.assertEquals(2, p1.getIdPersonaje());
+		Assert.assertEquals(2, p1.getId());
 	}
 
 	@Test

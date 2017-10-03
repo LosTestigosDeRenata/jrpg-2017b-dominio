@@ -47,9 +47,9 @@ public class Elfo extends Personaje {
 	 */
 	public Elfo(final String nombre, final int salud, final int energia,
 			final int fuerza, final int destreza, final int inteligencia, final Casta casta,
-			final int experiencia, final int nivel, final int idPersonaje) {
-		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
-				experiencia, nivel, idPersonaje);
+			final int experiencia, final int nivel, final int id) {
+		super(id, nombre, salud, energia, fuerza, destreza, inteligencia, casta,
+				experiencia, nivel);
 	}
 
 

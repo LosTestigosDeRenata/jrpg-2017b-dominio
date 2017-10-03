@@ -7,9 +7,10 @@ import java.util.ArrayList;
  * Que tiene como funcion tener los atributos que
  * comparten las clases NPC y Personaje
  */
-public abstract class MadreDeTodo {
+public abstract class MadreDeTodo implements Peleable{
 
 	
+	protected int id;
 	/**
 	 * Salud del personaje.
 	 */
@@ -18,10 +19,12 @@ public abstract class MadreDeTodo {
 	 * Salud tope del Personaje.
 	 */
 	protected int saludTope;
+	protected int energia;
+	protected int energiaTope;
 	/**
 	 * Fuerza que recibira el personaje o npc.
 	 */
-	private int fuerza;
+	protected int fuerza;
 	/**
 	 * Defensa que recibira el personaje o npc.
 	 */
@@ -29,11 +32,11 @@ public abstract class MadreDeTodo {
 	/**
 	 * Nivel que recibira el personaje o npc.
 	 */
-	private int nivel;
+	protected int nivel;
 	/**
 	 * Nombre que recibira el personaje o npc.
 	 */
-	private String nombre;
+	protected String nombre;
 	/**
 	 * Objeto para obtener valores aleatorios.
 	 */
@@ -56,7 +59,10 @@ public abstract class MadreDeTodo {
 	 * @param nombre valor otorgado por
 	 * el constructor de NPC o Personaje.
 	 */
-	public MadreDeTodo(final int fuerza, final int defensa, final int saludTope, final int nivel, final String nombre) {
+	public MadreDeTodo(final int id, final int energiaTope, final int fuerza, final int defensa, final int saludTope, final int nivel, final String nombre) {
+		this.id = id;
+		energia = energiaTope;
+		this.energiaTope = energiaTope;
 		this.fuerza = fuerza;
 		this.defensa = defensa;
 		this.saludTope = saludTope;
@@ -64,6 +70,37 @@ public abstract class MadreDeTodo {
 		this.nivel = nivel;
 		this.nombre = nombre;
 		this.random = new MyRandom();
+	}
+
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
+	
+	public int getEnergia() {
+		return energia;
+	}
+
+
+	public void setEnergia(int energia) {
+		this.energia = energia;
+	}
+
+
+	public int getEnergiaTope() {
+		return energiaTope;
+	}
+
+
+	public void setEnergiaTope(int energiaTope) {
+		this.energiaTope = energiaTope;
 	}
 
 
@@ -79,6 +116,10 @@ public abstract class MadreDeTodo {
 	 */
 	public final int getDefensa() {
 		return defensa;
+	}
+	
+	public int getSaludTope() {
+		return saludTope;
 	}
 
 	/** Método que devuelve el nivel del personaje o NPC.
@@ -100,6 +141,20 @@ public abstract class MadreDeTodo {
 	 */
 	public final void setNombre(final String nombre) {
 		this.nombre = nombre;
+	}
+	/** Metodo que retorna boolean heredado de la interface Peleable.
+	 * Si la salud del MadreDeTodos es mayor a 0 este está vivo.
+	 *
+	 * @return Retorna si esta vivo o no el MadreDeTodos.
+	 */
+	public final boolean estaVivo() {
+		return salud > 0;
+	}
+	/**Retorna entero con la salud del personaje.
+	 * @return Salud del personaje
+	 */
+	public final int getSalud() {
+		return salud;
 	}
 	/** Método void que aumenta la fuerza del personaje o NPC.
 	 * Con el valor que se ingresa por parámetro.
@@ -164,4 +219,6 @@ public abstract class MadreDeTodo {
 	public ArrayList<Item> getItems() {
 		return items;
 	}
+	
+	
 }

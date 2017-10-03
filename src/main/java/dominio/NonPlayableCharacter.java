@@ -1,6 +1,8 @@
 
 package dominio;
 
+import java.util.HashMap;
+
 /**
  * La clase NonPlayableCharacter (NPC).
  * Representa a los personajes del juego que no son
@@ -8,7 +10,7 @@ package dominio;
  * Implementa la Interfaz Peleable.
  */
 
-public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
+public class NonPlayableCharacter extends MadreDeTodo{
 	/**
 	 * Numero que sirve de argumento para obtener la dificultad.
 	 */
@@ -16,7 +18,7 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	/**
 	 * Dificultad aleatoria NPC.
 	 */
-	private static final int DIFICULTADALEATORIA = -1;
+	public static final int DIFICULTADALEATORIA = -1;
 	/**
 	 * Multiplicador de experiencia otorgada por el npc.
 	 */
@@ -61,6 +63,8 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 * Multiplicador defensa del NPC.
 	 */
 	private static final int MULTIPLICADORD = 1;
+	
+	private static int id = -1; // Establezco id's negativas para todo NPC asi es mas facil saber cuando un Peleable es NPC sin usar instanceof. // 
 
 	/**
 	 * Constructor de la Clase.
@@ -73,8 +77,9 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 * que produce una variación en los atributos.
 	 */
 	public NonPlayableCharacter(final String nombre, final int nivel, final int dificultadNPC) {
-		super(0, 0, 0, nivel, nombre);
+		super(id, 100, 0, 0, 100, nivel, nombre);
 
+		id--;
 		int dificultad;
 		if (dificultadNPC == DIFICULTADALEATORIA) {
 			dificultad = this.getRandom().nextInt(ELEGIRDIF);
@@ -101,28 +106,6 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	@Override
 	public final int otorgarExp() {
 		return this.getNivel() * MULTIPLICADOREXPNPC;
-	}
-
-
-	/**
-	 * Retorna un booleano.
-	 * Que indica si el NPC esta vivo, evaluando si el mismo tiene
-	 * salud mayor a 0.
-	 * @return true si el NPC está vivo, false para lo contrario.
-	 */
-	@Override
-	public final boolean estaVivo() {
-		return salud > 0;
-	}
-
-
-	/**
-	 * Retorna un entero que representa los puntos de salud del NPC.
-	 * @return Devuelve la cantidad de vida actual del NPC
-	 */
-	@Override
-	public final int getSalud() {
-		return salud;
 	}
 
 	/**
@@ -207,6 +190,17 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	@Override
 	public final int getMagia() {
 		return 0;
+	}
+	
+	/**
+	 * Actualiza la salud y la energía del npc en batalla.
+	 * @param map contenedor de los atributos a actualizar.
+	 */
+	@Override
+	public final void actualizarAtributos(final HashMap<String, Number> map) {
+		salud = map.get("salud").intValue();
+		energia = map.get("energia").intValue();
+		defensa = map.get("defensa").intValue();
 	}
 }
 

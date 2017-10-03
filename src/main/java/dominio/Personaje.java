@@ -162,10 +162,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	private int experiencia;
 	/**
-	 * Identificador del Personaje.
-	 */
-	private int idPersonaje;
-	/**
 	 * Alianza del Personaje.
 	 */
 	private Alianza clan = null;
@@ -219,15 +215,13 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * @param id Identificador del personaje
 	 */
 	public Personaje(final String nombre, final Casta casta, final int id) {
-		super(FUERZAINICIAL, DEFENSAINICIAL, SALUDTOPEINICIAL, NIVELINICIAL, nombre);
+		super(id, ENERGIATOPEINICIAL, FUERZAINICIAL, DEFENSAINICIAL, SALUDTOPEINICIAL, NIVELINICIAL, nombre);
 
 
 		this.casta = casta;
-		this.idPersonaje = id;
 		experiencia = EXPERIENCIAINICIAL;
 		inteligencia = INTELIGENCIANICIAL;
 		destreza = DESTREZAINICIAL;
-		energiaTope = ENERGIATOPEINICIAL;
 		aumentarEnergiaTope(getEnergiaBonus());
 		aumentarSaludTope(getSaludBonus());
 		aumentarDestreza(casta.recibirDestrezaBonus());
@@ -239,8 +233,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		habilidadesCasta = casta.getHabilidadesCasta();
 		x = POSXI;
 		y = POSYI;
-
-		energia = energiaTope;
 		ataque = this.calcularPuntosDeAtaque();
 		magia = this.calcularPuntosDeMagia();
 		this.aumentarDefensa(destreza);
@@ -264,13 +256,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * @param nivel Nivel del personaje
 	 * @param idPersonaje Id del personaje
 	 */
-	public Personaje(final String nombre, final int salud, final int energia, final int fuerza,
+	public Personaje(final int id, final String nombre, final int salud, final int energia, final int fuerza,
 			final int destreza, final int inteligencia, final Casta casta,
-			final int experiencia, final int nivel,
-			final int idPersonaje) {
-		super(fuerza, 0, salud, nivel, nombre);
-
-		this.energia = energia;
+			final int experiencia, final int nivel) {
+		super(id, energia, fuerza, 0, salud, nivel, nombre);
 
 		this.destreza = destreza;
 		this.aumentarDefensa(destreza);
@@ -278,11 +267,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		this.casta = casta;
 
 		this.experiencia = experiencia;
-
-
-		this.energiaTope = this.energia;
-
-		this.idPersonaje = idPersonaje;
 
 		this.ataque = this.calcularPuntosDeAtaque();
 		this.magia = this.calcularPuntosDeMagia();
@@ -340,13 +324,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		this.clan = clan;
 		clan.añadirPersonaje(this);
 	}
-	/**Retorna entero con la salud del personaje.
-	 * @return Salud del personaje
-	 */
-	@Override
-	public final int getSalud() {
-		return salud;
-	}
 
 	/**Retorna entero con la energia del personaje.
 	 * @return Energia del personaje
@@ -382,13 +359,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	public final int getExperiencia() {
 		return experiencia;
-	}
-
-	/** Retorna un entero con el Id del personaje.
-	 * @return Identificacion del personaje
-	 */
-	public final int getIdPersonaje() {
-		return idPersonaje;
 	}
 
 	/**Retorna un entero.
@@ -521,15 +491,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		this.magia = this.calcularPuntosDeMagia();
 	}
 
-	/** Metodo que retorna boolean heredado de la interface Peleable.
-	 * Si la salud del personaje es mayor a 0 este está vivo.
-	 *
-	 * @return Retorna si esta vivo o no el personaje.
-	 */
-	@Override
-	public final boolean estaVivo() {
-		return salud > 0;
-	}
 	/** Método implementado de la Interface Peleable.
 	 * Retornará un valor entero dependiendo del resultado
 	 * de las comparaciones, si el número generado con la
@@ -945,6 +906,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * Actualiza la salud y la energía del personaje en batalla.
 	 * @param map contenedor de los atributos a actualizar.
 	 */
+	@Override
 	public final void actualizarAtributos(final HashMap<String, Number> map) {
 		salud = map.get("salud").intValue();
 		energia = map.get("energia").intValue();

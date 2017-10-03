@@ -1,6 +1,8 @@
 
 package dominio;
 
+import java.util.HashMap;
+
 /** Interface implementada en las clases Personaje
  * y NPC.
  * Dependiendo qué clase las esté implementando
@@ -23,6 +25,9 @@ public interface Peleable {
 	 * @return Retornara un entero con la salud del llamador.
 	 */
 	int getSalud();
+	int getSaludTope();
+	int getEnergia();
+	int getEnergiaTope();
 	/**
 	 * Metodo implementado en Personaje
 	 * y NonPlayableCharacter.
@@ -73,5 +78,7 @@ public interface Peleable {
 	 * @return retorna el nombre del Personaje o NPC.
 	 */
 	String getNombre();
+	
+	void actualizarAtributos(final HashMap<String, Number> map);
 }
 
