@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 /** Clase Personaje.
  * La cual sirve de base para la creacion de las distintas Razas.
  */
@@ -168,6 +169,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	private int experiencia;
 	/**
+	 * Puntos de skill del personaje.
+	 */
+	private int puntosSkill;
+	/**
 	 * Identificador del Personaje.
 	 */
 	private int idPersonaje;
@@ -214,6 +219,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 			Personaje.getTablaDeNiveles()[i] = Personaje.getTablaDeNiveles()[i - 1] + CONSTANTENIVEL;
 		}
 	}
+
 	/** La clase Personaje es la cual posee todos los atributos.
 	 * Algunos serán completados por las clases hijo (Elfo,Humano,Orco)
 	 * como por ejemplo el array habilidadesRaza[].
@@ -726,6 +732,8 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 			this.modificarAtributos();
 			this.saludTope += SALUDTOPESUBIRN;
 			this.energiaTope += ENERGIATOPESUBIRN;
+			this.puntosSkill += 3;
+
 		}
 		this.experiencia -= acumuladorExperiencia;
 	}
@@ -989,6 +997,14 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		}
 		this.items = aux;
 	}
+	public int getPuntosSkill() {
+		return puntosSkill;
+	}
+	public void setPuntosSkill(int puntosSkill) {
+		this.puntosSkill = puntosSkill;
+	}
+	
+	
 
 }
 
