@@ -13,10 +13,6 @@ import javax.swing.DefaultListModel;
 public abstract class Personaje extends MadreDeTodo implements Peleable, Serializable {
 	
 	/**
-	 * Energia del personaje.
-	 */
-	private int energia;
-	/**
 	 * Cantidad de habilidades que posee el personaje dada su casta.
 	 */
 	private static final int CANTHABILIDADESCASTA = 3;
@@ -133,10 +129,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	private String nombreRaza;
 	
-	/**
-	 * Energia tope del Personaje.
-	 */
-	private int energiaTope;
 	/**
 	 * Destreza del Personaje.
 	 */
@@ -369,14 +361,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		return saludTope;
 	}
 
-	/**Retorna un entero.
-	 * Con la energia Maxima que puede
-	 * tener el personaje.
-	 * @return Energia maxima del personaje.
-	 * */
-	public final int getEnergiaTope() {
-		return energiaTope;
-	}
 	/**
 	 * Método que retorna un entero.
 	 * Dpendiendo del resultado de las comparaciones entre
