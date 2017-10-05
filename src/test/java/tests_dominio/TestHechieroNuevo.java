@@ -47,7 +47,7 @@ public class TestHechieroNuevo {
 		Personaje p1 = new Humano("Ben Affleck",new Hechicero(),2);
 		p1.aumentarInteligencia(-20);
 		p1.setRandom(new MyRandomStub(0.49,3));
-		NonPlayableCharacter npc = new NonPlayableCharacter("Pepe", 1, 1);
+		NonPlayableCharacter npc = new NonPlayableCharacter(1,"Pepe", 1, 1);
 		npc.setRandom(new MyRandomStub(0.49,3));
 		
 		Assert.assertFalse(p1.habilidadCasta1(npc));
@@ -56,7 +56,7 @@ public class TestHechieroNuevo {
 	@Test
 	public void testInstanceOfHorrible2() {
 		Personaje p1 = new Humano("Ben Affleck",new Hechicero(),2);
-		NonPlayableCharacter npc = new NonPlayableCharacter("Pepe", 1, 1);
+		NonPlayableCharacter npc = new NonPlayableCharacter(1,"Pepe", 1, 1);
 		p1.setRandom(new MyRandomStub(0.49,3));
 		npc.setRandom(new MyRandomStub(0.49,3));
 		Assert.assertFalse(p1.habilidadCasta2(npc));
@@ -65,7 +65,7 @@ public class TestHechieroNuevo {
 	@Test
 	public void testInstanceOfHorrible3() {
 		Personaje p1 = new Humano("Ben Affleck",new Hechicero(),2);
-		NonPlayableCharacter npc = new NonPlayableCharacter("Pepe", 1, 1);
+		NonPlayableCharacter npc = new NonPlayableCharacter(1,"Pepe", 1, 1);
 		p1.setRandom(new MyRandomStub(0.49,3));
 		npc.setRandom(new MyRandomStub(0.49,3));
 		Assert.assertFalse(p1.habilidadCasta3(npc));

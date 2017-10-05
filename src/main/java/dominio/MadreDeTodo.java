@@ -41,6 +41,8 @@ public abstract class MadreDeTodo implements Peleable{
 	 * Objeto para obtener valores aleatorios.
 	 */
 	private RandomGenerator random;
+	
+	protected boolean esNPC = false;
 
 	protected ArrayList<Item> items = new ArrayList<Item>();
 

@@ -63,8 +63,6 @@ public class NonPlayableCharacter extends MadreDeTodo{
 	 * Multiplicador defensa del NPC.
 	 */
 	private static final int MULTIPLICADORD = 1;
-	
-	private static int id = -1; // Establezco id's negativas para todo NPC asi es mas facil saber cuando un Peleable es NPC sin usar instanceof. // 
 
 	/**
 	 * Constructor de la Clase.
@@ -76,10 +74,10 @@ public class NonPlayableCharacter extends MadreDeTodo{
 	 * @param dificultadNPC Valor entero
 	 * que produce una variación en los atributos.
 	 */
-	public NonPlayableCharacter(final String nombre, final int nivel, final int dificultadNPC) {
+	public NonPlayableCharacter(final int id, final String nombre, final int nivel, final int dificultadNPC) {
 		super(id, 100, 0, 0, 100, nivel, nombre);
-
-		id--;
+		
+		esNPC = true;
 		int dificultad;
 		if (dificultadNPC == DIFICULTADALEATORIA) {
 			dificultad = this.getRandom().nextInt(ELEGIRDIF);
