@@ -317,13 +317,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		clan.añadirPersonaje(this);
 	}
 
-	/**Retorna entero con la energia del personaje.
-	 * @return Energia del personaje
-	 */
-	public final int getEnergia() {
-		return energia;
-	}
-
 	/**Retorna un entero con la destreza del personaje.
 	 * @return Destreza del personaje
 	 */
