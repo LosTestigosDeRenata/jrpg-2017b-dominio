@@ -124,10 +124,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * Posicion inicial del personaje en Y.
 	 */
 	private static final int POSYI = 0;
-	/**
-	 * Puntos de skill.
-	 */
-	private int puntosSkill;
+
 	/**
 	 * Ataque del personaje.
 	 */
@@ -300,22 +297,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		this.magia = this.calcularPuntosDeMagia();
 	}
 
-	/**Retorna un entero con los puntos de skill del personaje.
-	 * @return puntos skill del personaje.
-	 */
-	public final int getPuntosSkill ()
-	{
-		return puntosSkill;
-	}
-	
-	/**Metodo void que sobreescribe el atributo de puntos skill
-	 * con el parametro enviado.
-	 * @param puntosSkill la cantidad de puntos a asignar.
-	 */
-	public final void setPuntosSkill (int puntos)
-	{
-		puntosSkill = puntos;
-	}
+
 	
 	/**Retorna un entero con el ataque del personaje.
 	 * @return ataque del personaje.
@@ -1008,13 +990,23 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		}
 		this.items = aux;
 	}
-	public int getPuntosSkill() {
+	
+	/**Retorna un entero con los puntos de skill del personaje.
+	 * @return puntos skill del personaje.
+	 */
+	public final int getPuntosSkill ()
+	{
 		return puntosSkill;
 	}
-	public void setPuntosSkill(int puntosSkill) {
-		this.puntosSkill = puntosSkill;
-	}
 	
+	/**Metodo void que sobreescribe el atributo de puntos skill
+	 * con el parametro enviado.
+	 * @param puntosSkill la cantidad de puntos a asignar.
+	 */
+	public final void setPuntosSkill (int puntos)
+	{
+		puntosSkill = puntos;
+	}
 	
 
 }
