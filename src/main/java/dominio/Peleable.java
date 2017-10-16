@@ -31,11 +31,6 @@ public interface Peleable {
 	 */
 	int getMagia();
 	/**
-	 * Metodo void implementado en Personaje
-	 * y NonPlayableCharacter.
-	 */
-	void despuesDeTurno();
-	/**
 	 * Metodo implementado en Personaje
 	 * y NonPlayableCharacter.
 	 * @param atacado Personaje al cual el llamador atacara.

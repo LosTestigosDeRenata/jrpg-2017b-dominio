@@ -6,11 +6,8 @@ import java.util.Random;
  *
  * Clase que se utiliza para obtener números aleatoreos.
  */
-public class MyRandom extends RandomGenerator {
-
-
-
-
+public class MyRandom extends RandomGenerator 
+{
 	/**El método nextDobule() retorna siempre el número 0.49.
 	 * @return retorna un número double que varía entre 0.0 y 1.0
 	 */

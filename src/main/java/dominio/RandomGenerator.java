@@ -20,6 +20,34 @@ public  class RandomGenerator {
 	public double nextDouble() {
 		return 0;
 	}
+	
+	/**
+	 * Devuelve un entero entre un rango determinado.
+	 * @param min Valor mínimo.
+	 * @param max Valor máximo.
+	 * @return Retorna un entero entre el valor máximo y el valor mínimo.
+	 */
+	public int rangoInt (int min, int max)
+	{
+		return this.nextInt(max - min + 1) + min;
+	}
+	
+	/**
+	 * Devuelve un double entre un rango determinado.
+	 * @param min Valor mínimo.
+	 * @param max Valor máximo.
+	 * @return Retorna un double entre el valor máximo y el valor mínimo.
+	 */
+	public double rangoDouble (double min, double max)
+	{
+		return this.nextDouble() * (max - min) + min;
+	}
+	
+	public double aplicarDesvío (double valor, double desvío)
+	{
+		return valor * this.rangoDouble(1 - desvío, 1 + desvío);
+	}
+	
 	/**
 	 * Constructor de la clase.
 	 */
