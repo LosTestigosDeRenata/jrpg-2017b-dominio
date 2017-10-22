@@ -123,4 +123,14 @@ public class NpcBruto extends NonPlayableCharacter
 		return true;
 	}
 
+	public int getTurnosPielPiedra()
+	{
+		return turnosPielPiedra;
+	}
+
+	public void setTurnosPielPiedra(int turnosPielPiedra)
+	{
+		this.turnosPielPiedra = turnosPielPiedra;
+	}
+
 }

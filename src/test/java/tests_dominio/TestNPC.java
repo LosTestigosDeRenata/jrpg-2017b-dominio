@@ -9,9 +9,10 @@ import dominio.NpcBandido;
 public class TestNPC {
 
 	@Test
-	public void testDañarPeleable() {
-		NonPlayableCharacter npc = new NpcBandido("Gigante", 1);
-		NonPlayableCharacter npc2 = new NpcBandido("Gigante", 1);
+	public void testDañarPeleable() 
+	{
+		NonPlayableCharacter npc = new NpcBandido("Arturo", 1);
+		NonPlayableCharacter npc2 = new NpcBandido("Arsenio", 1);
 		System.out.println(npc2.getSalud());
 		npc.dañarPeleable(npc2, 15);
 		
@@ -19,9 +20,10 @@ public class TestNPC {
 		Assert.assertTrue(saludNpc2 == 122 || saludNpc2 == 125);
 	}
 	
-	/*@Test
-	public void testOtorgarExp() {
-		NonPlayableCharacter npc = new NonPlayableCharacter("Gigante", 1, -1);
-		Assert.assertTrue(30 == npc.otorgarExp());
-	}*/
+	@Test
+	public void testOtorgarExp() 
+	{
+		NonPlayableCharacter npc = new NpcBandido("Arturo", 1);
+		Assert.assertTrue(29 == npc.otorgarExp());
+	}
 }
