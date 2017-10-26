@@ -11,7 +11,7 @@ public class Alianza {
 	 */
 	private final String nombre;
 	/**
-	 * Lista la cual contendra todos los integrantes de la alianza.
+	 * Lista la cual contendrá todos los integrantes de la alianza.
 	 */
 	private LinkedList<Personaje> aliados;
 

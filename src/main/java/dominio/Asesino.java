@@ -4,7 +4,7 @@ package dominio;
 /** La clase Asesino es una casta de Personaje.
  * Hereda de la clase Casta
  * posee dos constructores.
- * El otro constructor, llama al constructor de
+ * El otro constructor, llama al de
  * la clase padre (Casta)
  * pasándole los argumentos recibidos
  * por el constructor hijo y luego inicializa la
@@ -13,7 +13,7 @@ package dominio;
 
 public class Asesino extends Casta {
 	/**
-	 * Energia minima necesario para realizar una habilidad.
+	 * Energía mínima necesaria para realizar una habilidad.
 	 */
 	private static final int ENERGIAMINIMA = 10;
 	/**
@@ -25,7 +25,7 @@ public class Asesino extends Casta {
 	 */
 	private static final double AUMENTARPROBEVITAR = 0.15;
 	/**
-	 * Probabilidad de evitar dano por defecto.
+	 * Probabilidad de evitar daño por defecto.
 	 */
 	private static final double PROBEVITARDANIO = 0.5;
 
@@ -33,7 +33,7 @@ public class Asesino extends Casta {
 	/** La clase Asesino es una casta de Personaje.
 	 * hereda de la clase Casta
 	 * posee dos constructores.
-	 * El otro constructor, llama al constructor de
+	 * El otro constructor, llama al de
 	 * la clase padre (Casta)
 	 * pasándole los argumentos recibidos
 	 * por el constructor hijo y luego inicializa la
@@ -63,8 +63,8 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 	 * Dependiendo de si se realizó exitosamente o no el ataque.
 	 * La primera condición para que el ataque
 	 * pueda realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
-	 * descuentan seguido de comprobar que los posee,
+	 * más del atributo energía ya que estos se
+	 * descuentan luego de comprobar que los posee,
 	 * de lo contrario el ataque no será posible
 	 * y se retornará false
 	 * De ser posible el ataque, se llama al método
@@ -103,8 +103,8 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 	 * se retornará false
 	 * @param caster Personaje que realiza el ataque,
 	 * en este caso no es un ataque si no un aumento en
-	 * las caracteristicas del caster en este caso
-	 * incrementa el atributo probabilidadEvitarDaño
+	 * las caracteristicas del caster.
+	 * Incrementa el atributo probabilidadEvitarDaño
 	 * @param atacado no cumple función alguna
 	 * dentro de este método
 	 * @return retorna si el ataque fue realizado
