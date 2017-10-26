@@ -91,7 +91,7 @@ public class NpcBruto extends NonPlayableCharacter
 		if (this.getRandom().nextDouble() <= ATAQUENORMAL_CHANCE_CRÍTICO)
 			daño = (int) (daño * ATAQUENORMAL_MULT_CRÍTICO);
 		
-		dañarPeleable(atacado, (int) this.getRandom().aplicarDesvío(daño, ATAQUENORMAL_DESVÍO));
+		dañarSalud(atacado, (int) this.getRandom().aplicarDispersión(daño, ATAQUENORMAL_DESVÍO));
 		
 		// El ataque normal para el bruto siempre se puede efectuar.
 		return true;
@@ -117,7 +117,7 @@ public class NpcBruto extends NonPlayableCharacter
 			return false;
 		
 		int energia = (int) (this.getNivel() * ENERGIZARSE_MULT_NIVEL);
-		this.aumentarEnergia((int) this.getRandom().aplicarDesvío(energia, ENERGIZARSE_DESVÍO));
+		this.aumentarEnergia((int) this.getRandom().aplicarDispersión(energia, ENERGIZARSE_DESVÍO));
 		
 		// el bandido siempre podrá energizarse
 		return true;

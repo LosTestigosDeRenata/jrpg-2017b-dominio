@@ -147,7 +147,7 @@ public class NpcBandido extends NonPlayableCharacter
 		if (this.getRandom().nextDouble() <= ATAQUENORMAL_CHANCE_CRÍTICO)
 			daño = (int) (daño * ATAQUENORMAL_MULT_CRÍTICO);
 		
-		dañarPeleable(atacado, (int) this.getRandom().aplicarDesvío(daño, ATAQUENORMAL_DESVÍO));
+		dañarSalud(atacado, (int) this.getRandom().aplicarDispersión(daño, ATAQUENORMAL_DESVÍO));
 		
 		// El ataque normal para el bandido siempre se puede efectuar.
 		return true;
@@ -163,7 +163,7 @@ public class NpcBandido extends NonPlayableCharacter
 		if (this.getRandom().nextDouble() <= ATAQUEDOBLE_CHANCE_CRÍTICO)
 			daño = (int) (daño * ATAQUEDOBLE_MULT_CRÍTICO);
 		
-		dañarPeleable(atacado, (int) this.getRandom().aplicarDesvío(daño, ATAQUEDOBLE_DESVÍO));
+		dañarSalud(atacado, (int) this.getRandom().aplicarDispersión(daño, ATAQUEDOBLE_DESVÍO));
 		this.energia -= ATAQUEDOBLE_COSTE_ENERGIA;
 
 		return true;
@@ -175,7 +175,7 @@ public class NpcBandido extends NonPlayableCharacter
 			return false;
 		
 		int salud = (int) (this.getNivel() * CURARSE_MULT_NIVEL);
-		this.aumentarSalud((int) this.getRandom().aplicarDesvío(salud, CURARSE_DESVÍO));
+		this.aumentarSalud((int) this.getRandom().aplicarDispersión(salud, CURARSE_DESVÍO));
 		this.energia -= CURARSE_COSTE_ENERGIA;
 		
 		return true;
@@ -184,7 +184,7 @@ public class NpcBandido extends NonPlayableCharacter
 	public boolean energizarse ()
 	{
 		int energia = (int) (this.getNivel() * ENERGIZARSE_MULT_NIVEL);
-		this.aumentarEnergia((int) this.getRandom().aplicarDesvío(energia, ENERGIZARSE_DESVÍO));
+		this.aumentarEnergia((int) this.getRandom().aplicarDispersión(energia, ENERGIZARSE_DESVÍO));
 		
 		// el bandido siempre podrá energizarse
 		return true;

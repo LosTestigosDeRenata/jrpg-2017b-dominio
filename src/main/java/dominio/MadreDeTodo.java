@@ -19,19 +19,19 @@ public abstract class MadreDeTodo {
 	protected int y;
 	
 	/**
-	 * Fuerza que recibira el personaje o npc.
+	 * Fuerza del personaje o npc.
 	 */
 	private int fuerza;
 	/**
-	 * Defensa que recibira el personaje o npc.
+	 * Defensa del personaje o npc.
 	 */
 	protected int defensa;
 	/**
-	 * Nivel que recibira el personaje o npc.
+	 * Nivel del personaje o npc.
 	 */
 	private int nivel;
 	/**
-	 * Nombre que recibira el personaje o npc.
+	 * Nombre del personaje o npc.
 	 */
 	private String nombre;
 	/**
@@ -41,20 +41,11 @@ public abstract class MadreDeTodo {
 
 	protected ArrayList<Item> items = new ArrayList<Item>();
 
-
-
 	/** Clase abstracta.
-	 * Que tiene como
-	 * funcion tener los atributos que
-	 * comparten las clases NPC y Personaje
-	 * @param fuerza valor otorgado por
-	 * el constructor de NPC o Personaje.
-	 * @param defensa valor otorgado por
-	 * el constructor de NPC o Personaje.
-	 * @param nivel valor otorgado por
-	 * el constructor de NPC o Personaje.
-	 * @param nombre valor otorgado por
-	 * el constructor de NPC o Personaje.
+	 * Que tiene como función tener los atributos que comparten las clases NPC y Personaje
+	 * @param fuerza valor otorgado por el constructor de NPC o Personaje.
+	 * @param defensa valor otorgado por el constructor de NPC o Personaje. @param nivel valor otorgado por el constructor de NPC o Personaje.
+	 * @param nombre valor otorgado por el constructor de NPC o Personaje.
 	 */
 	public MadreDeTodo(final int fuerza, final int defensa, final int nivel, final String nombre) {
 		this.fuerza = fuerza;
