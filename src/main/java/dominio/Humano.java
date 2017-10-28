@@ -27,6 +27,10 @@ public class Humano extends Personaje {
 	 * Bonus de salud obtenido por ser de raza Humano.
 	 */
 	private static final int BONUSSALUD = 5;
+	
+	private static final boolean NO_SE_EJECUTO = false;
+	
+	private static final boolean HABILIDAD_EJECUTADA = true;
 
 	/**La clase Humano hereda de la clase Personaje.
 	 * Completa ciertos atributos que estaban
@@ -84,9 +88,9 @@ public class Humano extends Personaje {
 		if (this.getEnergia() >= ENERGIAMINIMA) {
 			this.reducirEnergia(ENERGIAMINIMA);
 			atacado.setAtaque(atacado.getAtaque() + this.getMagia());
-			return true;
+			return HABILIDAD_EJECUTADA;
 		}
-		return false;
+		return NO_SE_EJECUTO;
 	}
 
 
@@ -113,11 +117,11 @@ public class Humano extends Personaje {
 		if (this.getEnergia() >= ENERGIAMINIMA) {
 			if (atacado.serAtacado(atacado.getSalud() / DIVISORSALUD) > 0) {
 				this.reducirEnergia(this.getEnergia() / DIVISORENERGIA);
-				return true;
+				return HABILIDAD_EJECUTADA;
 			}
 		}
 		this.reducirEnergia(ENERGIAMINIMA);
-		return false;
+		return NO_SE_EJECUTO;
 	}
 	/**Retorna un vector de string con los nombres
 	 * de las habilidades de la raza.

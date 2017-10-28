@@ -25,6 +25,10 @@ public class Hechicero extends Casta {
 	 * Bonus de inteligencia por ser de casta Hechicero.
 	 */
 	private static final int BONUSINTELIGENCIA = 5;
+	
+	private static final boolean NO_SE_EJECUTO = false;
+	
+	private static final boolean HABILIDAD_EJECUTADA = true;
 
 	/** La clase Hechicero es una casta de Personaje,
 	 * hereda de la clase Casta.
@@ -77,11 +81,10 @@ public class Hechicero extends Casta {
 	public final boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() >= ENERGIAMINIMA) {
 			caster.reducirEnergia(ENERGIAMINIMA);
-			if (atacado.serAtacado((int) (caster.calcularPuntosDeMagia() * MULTIPLICADORMAGIA)) > 0) {
-				return true;
-			}
+			return (atacado.serAtacado((int) (caster.calcularPuntosDeMagia() * MULTIPLICADORMAGIA)) > 0);
 		}
-		return false;
+		
+		return NO_SE_EJECUTO;
 	}
 
 
@@ -106,10 +109,10 @@ public class Hechicero extends Casta {
 			caster.reducirEnergia(ENERGIAMINIMA);
 			if (aliado instanceof Personaje) {
 				((Personaje) aliado).serCurado(caster.calcularPuntosDeMagia());
-				return true;
+				return HABILIDAD_EJECUTADA;
 			}
 		}
-		return false;
+		return NO_SE_EJECUTO;
 	}
 
 	/** Retorna un booleano dependiendo de si se
@@ -138,11 +141,10 @@ public class Hechicero extends Casta {
 						serRobadoSalud(caster.calcularPuntosDeMagia() / DIVISORDEMAGIA);
 				caster.serEnergizado(energiaRobada);
 				caster.serCurado(saludRobada);
-				return true;
+				return HABILIDAD_EJECUTADA;
 			}
-
 		}
-		return false;
+		return NO_SE_EJECUTO;
 	}
 	/** Retorna un entero que otorga el bonus de
 	 * inteligencia perteneciente a esta casta.

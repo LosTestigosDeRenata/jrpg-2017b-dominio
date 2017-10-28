@@ -30,6 +30,8 @@ public class Asesino extends Casta {
 	private static final double PROBEVITARDANIO = 0.5;
 	
 	private static final boolean NO_SE_EJECUTO = false;
+	
+	private static final boolean HABILIADAD_EJECUTADA = true;
 
 
 	/** La clase Asesino es una casta de Personaje.
@@ -120,7 +122,7 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 			else 
 				this.setProbabilidadEvitarDaño(PROBEVITARDANIO);
 	
-			return true;
+			return HABILIADAD_EJECUTADA;
 		}
 		return NO_SE_EJECUTO;
 	}
@@ -132,7 +134,7 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 	 */
 	@Override
 	public final boolean habilidad3(final Personaje caster, final Peleable atacado) {
-		return false;
+		return NO_SE_EJECUTO;
 	}
 	/** Retorna un entero.
 	 * Que otorga el bonus de  destreza perteneciente a esta casta.
