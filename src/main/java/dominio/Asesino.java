@@ -28,6 +28,11 @@ public class Asesino extends Casta {
 	 * Probabilidad de evitar dano por defecto.
 	 */
 	private static final double PROBEVITARDANIO = 0.5;
+	
+	/**
+	 * Probabilidad minima para evitar danio
+	 */
+	private static final double PROBMINIMAEVITARDANIO = 0.5;
 
 
 	/** La clase Asesino es una casta de Personaje.
@@ -84,7 +89,7 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 	public final boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() >= ENERGIAMINIMA) {
 			caster.reducirEnergia(ENERGIAMINIMA);
-			if (atacado.serAtacado((int) (caster.getAtaque() * caster.getCasta().getDañoCritico())) > 0) {
+			if (atacado.serAtacado((int) (caster.getAtaque() * caster.getCasta().getDanioCritico())) > 0) {
 				return true;
 			}
 		}
@@ -114,10 +119,10 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 	public final boolean habilidad2(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() >= ENERGIAMINIMA) {
 			caster.reducirEnergia(ENERGIAMINIMA);
-			if (this.getProbabilidadEvitarDaño() + AUMENTARPROBEVITAR < 0.5) {
-				this.aumentarEvitarDaño(AUMENTARPROBEVITAR);
+			if (this.getProbabilidadEvitarDanio() + AUMENTARPROBEVITAR < PROBMINIMAEVITARDANIO) {
+				this.aumentarEvitarDanio(AUMENTARPROBEVITAR);
 			} else {
-				this.setProbabilidadEvitarDaño(PROBEVITARDANIO);
+				this.setProbabilidadEvitarDanio(PROBEVITARDANIO);
 			}
 			return true;
 		}

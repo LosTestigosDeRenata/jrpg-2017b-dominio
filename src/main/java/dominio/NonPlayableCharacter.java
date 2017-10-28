@@ -90,11 +90,12 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 			dificultad = dificultadNPC;
 		}
 
-		this.aumentarFuerza(MODIFICADORBASEF * (dificultad + 1) +
-				(nivel - 1) * MULTIPLICADORF * (dificultad + 1));
-		this.saludTope = this.salud = MODIFICADORBASES * (dificultad + 1) + (nivel - 1) * MULTIPLICADORS * (dificultad + 1);
-		this.aumentarDefensa(MODIFICADORBASED * (dificultad + 1) +
-				(nivel - 1) * MULTIPLICADORD * (dificultad + 1));
+		this.aumentarFuerza(MODIFICADORBASEF * (dificultad + 1)
+				+ (nivel - 1) * MULTIPLICADORF * (dificultad + 1));
+		this.saludTope = this.salud = MODIFICADORBASES * (dificultad + 1)
+				+ (nivel - 1) * MULTIPLICADORS * (dificultad + 1);
+		this.aumentarDefensa(MODIFICADORBASED * (dificultad + 1)
+				+ (nivel - 1) * MULTIPLICADORD * (dificultad + 1));
 	}
 
 	/**
@@ -161,11 +162,12 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	/**
 	 * Dependiendo de MyRandom.nextdouble() y NUMEROPARASERATACADO.
 	 * Puede disminuir el daño dependiendo del atributo DIVISORDEDEFENSA.
-	 * @param danio valor a ser descontado del atributo salud.
+	 * @param danioParam valor a ser descontado del atributo salud.
 	 * @return Retorna 0 si el ataque no fue realizado con exito
 	 */
 	@Override
-	public final int serAtacado(int danio) {
+	public final int serAtacado(final int danioParam) {
+		int danio = danioParam;
 		if (this.getRandom().nextDouble() >= NUMEROPARASERATACADO) {
 			danio -= this.getDefensa() / DIVISORDEDEFENSA;
 			if (danio > 0) {
@@ -216,26 +218,29 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	public final int getMagia() {
 		return 0;
 	}
-	
-	public String getNombreRaza()
-	{
+	/**
+	 * @return nombre de la raza del npc
+	 */
+	public String getNombreRaza() {
 		return nombreRaza;
 	}
-
-	public void setNombreRaza(String nombreRaza)
-	{
+	/**
+	 * @param nombreRaza Nueva Raza del npc
+	 */
+	public void setNombreRaza(final String nombreRaza) {
 		this.nombreRaza = nombreRaza;
 	}
-
-	public int getSaludTope()
-	{
+	/**
+	 * @return salud maxima del npc
+	 */
+	public int getSaludTope() {
 		return saludTope;
 	}
-
-	public void setSaludTope(int saludTope)
-	{
+	/**
+	 * @param saludTope Nueva salud maxima del npc
+	 */
+	public void setSaludTope(final int saludTope) {
 		this.saludTope = saludTope;
 	}
+	
 }
-
-

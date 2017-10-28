@@ -11,10 +11,10 @@ public interface Peleable {
 	 * Metodo implementado en Personaje
 	 * y en NonPlayableCharacter.
 	 *
-	 * @param daño Valor el cual se descontará de la defensa.
+	 * @param danio Valor el cual se descontará de la defensa.
 	 * @return Retorna un entero con el daño causado al llamador.
 	 */
-	int serAtacado(int daño);
+	int serAtacado(int danio);
 
 	/**
 	 * Metodo implementado en Personaje
