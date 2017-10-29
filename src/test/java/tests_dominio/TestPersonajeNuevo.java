@@ -114,7 +114,7 @@ public class TestPersonajeNuevo {
 	public void testSerAtacado() {
 		Personaje p1 = new Humano("Ben Affleck",new Asesino(),2);
 		Assert.assertEquals(0, p1.serAtacado(3));
-		p1.getCasta().aumentarEvitarDaño(8);
+		p1.getCasta().aumentarEvitarDanio(8);
 		// Le aumento evitardano y vuelvo a probar con un dano 
 		// mucho mayor a la defensa y asi me devuelve 0
 		// porque no entra al if
