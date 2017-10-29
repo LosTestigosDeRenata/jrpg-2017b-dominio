@@ -21,6 +21,10 @@ public class Guerrero extends Casta {
 	 * Bonus de fuerza por ser de la casta Guerrero.
 	 */
 	private static final int BONUSFUERZA = 5;
+	
+	private static final boolean NO_SE_EJECUTO = false;
+	
+	private static final boolean HABILIDAD_EJECUTADA = true;
 
 	/** La clase Guerrero es una casta de Personaje.
 	 * Hereda de la clase Casta.
@@ -67,11 +71,9 @@ public class Guerrero extends Casta {
 	public final boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() >= ENERGIAMINIMA) {
 			caster.reducirEnergia(ENERGIAMINIMA);
-			if (atacado.serAtacado(caster.getAtaque() * MULTIPLICADORFUERZA) > 0) {
-				return true;
-			}
+			return(atacado.serAtacado(caster.getAtaque() * MULTIPLICADORFUERZA) > 0); 
 		}
-		return false;
+		return NO_SE_EJECUTO;
 	}
 
 
@@ -99,9 +101,9 @@ public class Guerrero extends Casta {
 		if (caster.getEnergia() >= ENERGIAMINIMA) {
 			caster.reducirEnergia(ENERGIAMINIMA);
 			caster.aumentarDefensa(caster.getMagia());
-			return true;
+			return HABILIDAD_EJECUTADA;
 		}
-		return false;
+		return NO_SE_EJECUTO;
 	}
 
 
@@ -132,12 +134,12 @@ public class Guerrero extends Casta {
 				((Personaje) atacado).reducirDefensa(((Personaje) atacado).getDefensa());
 				if (atacado.serAtacado(caster.getAtaque()) > 0) {
 					((Personaje) atacado).aumentarDefensa(defensaOriginal);
-					return true;
+					return HABILIDAD_EJECUTADA;
 				}
 			}
 
 		}
-		return false;
+		return NO_SE_EJECUTO;
 	}
 	/** Retorna un entero.
 	 * Que otorga el bonus de
