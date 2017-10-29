@@ -360,7 +360,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * Reduce la energía del personaje.
 	 * @param daño Valor a ser descontado del atributo energía
 	 */
-	public int recibirDañoEnergia (int daño)
+	public int recibirDanioEnergia (int daño)
 	{
 		if (daño > 0) 
 			reducirEnergia(daño);

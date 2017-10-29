@@ -39,10 +39,10 @@ dependencies {
 // Tareas
 
 checkstyle {
-	configFile = new File(rootDir, "src/test/resources/sun_checks.xml")
+	configFile = rootProject.file('src/test/resources/sun_checks.xml')
 	ignoreFailures = true
 }
-
+ 
 /*cobertura {
     coverageFormats = ['html', 'xml']
 }*/

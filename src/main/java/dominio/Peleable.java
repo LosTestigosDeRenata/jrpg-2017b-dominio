@@ -32,7 +32,7 @@ public interface Peleable
 	 * @param daño Valor de energía a reducir
 	 * @return Retorna un entero con la energía reducida al llamador.
 	 */
-	int recibirDañoEnergia(int daño);
+	int recibirDanioEnergia(int daño);
 	
 	/**
 	 * Método implementado en Personaje y NonPlayableCharacter.

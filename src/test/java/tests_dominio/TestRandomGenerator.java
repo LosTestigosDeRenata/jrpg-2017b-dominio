@@ -6,43 +6,36 @@ import org.junit.Test;
 
 import dominio.RandomGenerator;
 
-public class TestRandomGenerator
-{
+public class TestRandomGenerator {
 	RandomGenerator ran;
-	
+
 	@Before
-	public void before()
-	{
+	public void before() {
 		ran = new RandomGenerator();
 	}
-	
+
 	@Test
-	public void testNextInt() 
-	{
+	public void testNextInt() {
 		Assert.assertEquals(0, ran.nextInt(3));
 	}
-	
+
 	@Test
-	public void testNextDouble() 
-	{
+	public void testNextDouble() {
 		Assert.assertEquals(0, ran.nextDouble(), 0);
 	}
-	
+
 	@Test
-	public void testRangoInt() 
-	{
+	public void testRangoInt() {
 		Assert.assertEquals(0, ran.rangoInt(0, 10));
 	}
-	
+
 	@Test
-	public void testRangoDouble() 
-	{
+	public void testRangoDouble() {
 		Assert.assertEquals(0, ran.rangoDouble(3, 6), 0.00001);
 	}
-	
+
 	@Test
-	public void testDispersión() 
-	{
+	public void testDispersión() {
 		Assert.assertEquals(0, ran.aplicarDispersión(8, 0.2), 0.00001);
 	}
 

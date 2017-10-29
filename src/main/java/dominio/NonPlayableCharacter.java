@@ -104,14 +104,14 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
 	// El tema es que no quiero modificarlo porque hacerlo me obligaría a modificar la interfaz
 	// peleable y se rompería el juego en todos lados, así que prefiero utilizar este nuevo método:
 	
-	public final int dañarSalud (final Peleable atacado, int daño)
+	public final int daniarSalud (final Peleable atacado, int daño)
 	{
 		return atacado.serAtacado(daño);
 	}
 	
-	public final int dañarEnergia (final Peleable atacado, int daño)
+	public final int daniarEnergia (final Peleable atacado, int daño)
 	{
-		return atacado.recibirDañoEnergia(daño);
+		return atacado.recibirDanioEnergia(daño);
 	}
 	
 	// Voy a dejar que cada subclase implemente su propio método serAtacado
@@ -125,7 +125,7 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
 	 * Reduce la energía del Npc.
 	 * @param daño Valor a ser descontado del atributo energía
 	 */
-	public int recibirDañoEnergia (int daño)
+	public int recibirDanioEnergia (int daño)
 	{
 		if (daño > 0) 
 			reducirEnergia(daño);
