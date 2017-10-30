@@ -18,52 +18,52 @@ public interface Peleable {
 
 	/**
 	 * Metodo implementado en Personaje
-	 * y NonPlayableCharacter.
+	 * y en NonPlayableCharacter.
 	 *
 	 * @return Retornara un entero con la salud del llamador.
 	 */
 	int getSalud();
 	/**
 	 * Metodo implementado en Personaje
-	 * y NonPlayableCharacter.
+	 * y en NonPlayableCharacter.
 	 *
 	 * @return Retornara un entero con la energia del llamador.
 	 */
 	int getMagia();
 	/**
 	 * Metodo void implementado en Personaje
-	 * y NonPlayableCharacter.
+	 * y en NonPlayableCharacter.
 	 */
 	void despuesDeTurno();
 	/**
 	 * Metodo implementado en Personaje
-	 * y NonPlayableCharacter.
+	 * y en NonPlayableCharacter.
 	 * @param atacado Personaje al cual el llamador atacara.
 	 * @return Retorna el daño causado del atacante al atacado.
 	 */
 	int atacar(Peleable atacado);
 	/**
 	 * Metodo implementado en Personaje
-	 * y NonPlayableCharacter.
+	 * y en NonPlayableCharacter.
 	 * @return Retorna el nivel del llamador multiplicado por la
 	 * constante MULTIPLICADOREXP.
 	 */
 	int otorgarExp();
 	/**
 	 * Metodo implementado en Personaje
-	 * y NonPlayableCharacter.
+	 * y en NonPlayableCharacter.
 	 * @return Retorna un entero con el ataque del llamador.
 	 */
 	int getAtaque();
 	/**
 	 * Metodo implementado en Personaje
-	 * y NonPlayableCharacter.
+	 * y en NonPlayableCharacter.
 	 * @param ataque Entero que será el nuevo ataque del llamador.
 	 */
 	void setAtaque(int ataque);
 	/**
 	 * Metodo implementado en Personaje
-	 * y NonPlayableCharacter.
+	 * y en NonPlayableCharacter.
 	 *
 	 * @return Retorna un boolean si esta vivo o no el llamador.
 	 */

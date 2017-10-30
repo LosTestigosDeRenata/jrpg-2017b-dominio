@@ -15,8 +15,7 @@ public class Alianza {
 	 */
 	private LinkedList<Personaje> aliados;
 
-	/**La clase Alianza tiene como función agrupar a los jugadores.
-	 * mediante una LinkedList de Personajes
+	/**
 	 * @param nombre Nombre que se le dará a la alianza
 	 */
 	public Alianza(final String nombre) {

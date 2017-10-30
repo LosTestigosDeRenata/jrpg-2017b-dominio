@@ -10,11 +10,11 @@ package dominio;
 	 */
 public class Guerrero extends Casta {
 	/**
-	 * Energia minima requerida para realizar una habilidad.
+	 * Energia mínima requerida para realizar una habilidad.
 	 */
 	private static final int ENERGIAMINIMA = 10;
 	/**
-	 * Numero por el cual sera multiplicado el ataque del guerrero.
+	 * Número por el cual sera multiplicado el ataque del guerrero.
 	 */
 	private static final int MULTIPLICADORFUERZA = 2;
 	/**
@@ -22,13 +22,7 @@ public class Guerrero extends Casta {
 	 */
 	private static final int BONUSFUERZA = 5;
 
-	/** La clase Guerrero es una casta de Personaje.
-	 * Hereda de la clase Casta.
-	 * posee dos constructores.
-	 * El constructor, llama al constructor de la
-	 * clase padre (Casta),
-	 * pasándole los argumentos recibidos
-	 * por el constructor hijo
+	/**
 	 * @param probCrit Probabilidad de que el
 	 * personaje realice un golpe crítico
 	 * @param evasion Probabilidad de que el
@@ -39,7 +33,7 @@ public class Guerrero extends Casta {
 	public Guerrero(final double probCrit, final double evasion, final double danioCrit) {
 		super(probCrit, evasion, danioCrit);
 	}
-	/** El constructor por defecto, llama al constructor por defecto.
+	/** El constructor por defecto de la clase, llama al constructor por defecto.
 	 * padre (Casta), inicializando probabilidadGolpeCritico,
 	 *  probabilidadEvitarDaño, dañoCritico,
 	 * con valores predeterminados.

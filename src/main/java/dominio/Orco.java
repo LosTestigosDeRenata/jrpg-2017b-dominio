@@ -18,9 +18,7 @@ public class Orco extends Personaje {
 	 */
 	private static final int MULTIPLICADORDEFENSA = 2;
 
-	/**La clase Orco hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban declarados en
-	 * la clase Personaje, como por ejemplo habilidadesRaza[]
+	/**
 	 * @param nombre Indica el nombre el personaje
 	 * @param casta Indica la casta(Raza) del personaje
 	 * @param id Identificador del personaje
@@ -28,10 +26,8 @@ public class Orco extends Personaje {
 	public Orco(final String nombre, final Casta casta, final int id) {
 		super(nombre, casta, id);
 	}
-	/**La clase Orco hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban declarados en
-	 * la clase Personaje, como por ejemplo habilidadesRaza[]
-	 * Recibe la mayoría de los atributos
+	/**
+	 * Recibe la mayoría de los atributos de la clase Personaje
 	 * @param nombre Nombre del personaje
 	 * @param salud Salud del personaje
 	 * @param energia Energia del personaje

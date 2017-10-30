@@ -26,13 +26,7 @@ public class Hechicero extends Casta {
 	 */
 	private static final int BONUSINTELIGENCIA = 5;
 
-	/** La clase Hechicero es una casta de Personaje,
-	 * hereda de la clase Casta.
-	 * Posee dos constructores
-	 * El otro constructor, llama al constructor de
-	 * la clase padre (Casta),
-	 * pasándole los argumentos recibidos
-	 * por el constructor hijo.
+	/**
 	 * @param probCrit Probabilidad de que el
 	 * personaje realice un golpe crítico
 	 * @param evasion Probabilidad de que el personaje

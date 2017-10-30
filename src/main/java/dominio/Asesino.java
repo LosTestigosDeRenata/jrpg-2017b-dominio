@@ -30,13 +30,7 @@ public class Asesino extends Casta {
 	private static final double PROBEVITARDANIO = 0.5;
 
 
-	/** La clase Asesino es una casta de Personaje.
-	 * hereda de la clase Casta
-	 * posee dos constructores.
-	 * El otro constructor, llama al de
-	 * la clase padre (Casta)
-	 * pasándole los argumentos recibidos
-	 * por el constructor hijo y luego inicializa la
+	/**
 	 * variable nombreCasta
 	 * @param probCrit Probabilidad de que el
 	 * personaje realice un golpe crítico
@@ -49,7 +43,7 @@ public class Asesino extends Casta {
 public Asesino(final double probCrit, final double evasion, final double danioCrit) {
 	super(probCrit, evasion, danioCrit);
 }
-	/** El constructor por defecto, llama al constructor por defecto.
+	/** El constructor por defecto de la clase, llama al constructor por defecto.
 	 * padre (Casta), inicializando probabilidadGolpeCritico,
 	 *  probabilidadEvitarDaño, dañoCritico,
 	 * con valores predeterminados.
