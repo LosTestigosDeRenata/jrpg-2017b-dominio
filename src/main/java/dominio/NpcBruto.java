@@ -86,9 +86,7 @@ public class NpcBruto extends NonPlayableCharacter {
 		// de lo contrario, energizarse.
 		if (this.getRandom().nextDouble() <= 0.7) {
 			ataqueNormal(objetivo);
-		} else if (this.energia >= PIELPIEDRA_COSTE_ENERGIA) {
-			pielDePiedra();
-		} else {
+		} else if (!pielDePiedra()) {
 			energizarse();
 		}
 

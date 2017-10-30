@@ -80,12 +80,12 @@ public class NpcBandido extends NonPlayableCharacter {
 
 	@Override
 	public void jugarTurno(Peleable objetivo) {
-		// Si el nivel es menor a 3 nunca llamo a energizarse
+		// Si el nivel es menor a 4 nunca llamo a energizarse
 		// porque la cantidad de energia que recupera es muy poca como para ser
 		// útil.
-		if (this.getNivel() < 3) {
-			// 30% chance de que se quiera curar si no está con vida completa.
-			if (this.getRandom().nextDouble() <= 0.3) {
+		if (this.getNivel() < 4) {
+			// 20% chance de que se quiera curar.
+			if (this.getRandom().nextDouble() <= 0.20) {
 				curarse();
 			} else {
 				// 25% chance de realizar un ataque doble
@@ -100,7 +100,7 @@ public class NpcBandido extends NonPlayableCharacter {
 					ataqueNormal(objetivo);
 			}
 		}
-		// El bandido con nivel mayor a 3 es un poco más agresivo.
+		// El bandido con nivel mayor a 4 es un poco más agresivo.
 		else {
 			// Si mi salud está por encima de la mitad, nunca voy a intentar
 			// curarme

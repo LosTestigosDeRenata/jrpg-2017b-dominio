@@ -117,29 +117,22 @@ public class NpcBrujo extends NonPlayableCharacter {
 		else {
 			if (this.getRandom().nextDouble() >= 0.5) {
 				efectuarAlgunAtaque(objetivo);
-			}
-
-			else {
-				if (this.getRandom().nextDouble() >= 0.5) {
-					if (this.getRandom().nextDouble() >= 0.4) {
-						if (!regenerarse()) {
-							if (!campoDeEnergia()) {
-								efectuarAlgunAtaque(objetivo);
-							}
-
-						}
-					} else {
+			} else {
+				if (this.getRandom().nextDouble() >= 0.6) {
+					if (!regenerarse()) {
 						if (!campoDeEnergia()) {
-							if (!regenerarse()) {
-								efectuarAlgunAtaque(objetivo);
-							}
-
+							efectuarAlgunAtaque(objetivo);
 						}
+
 					}
 				} else {
-					efectuarAlgunAtaque(objetivo);
-				}
+					if (!campoDeEnergia()) {
+						if (!regenerarse()) {
+							efectuarAlgunAtaque(objetivo);
+						}
 
+					}
+				}
 			}
 		}
 	}

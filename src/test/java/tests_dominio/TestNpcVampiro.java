@@ -28,6 +28,40 @@ public class TestNpcVampiro {
 		Assert.assertEquals(960, vampiro.getSalud());
 		Assert.assertEquals(410, vampiro.getEnergia());
 	}
+	
+	@Test
+	public void testJugarTurno() {
+		NpcVampiro vampiro = new NpcVampiro("Janson", 10);
+		NpcVampiro objetivo = new NpcVampiro("Riky", 10);
+		RandomGenerator ran = new MyRandomStub(1, 5);
+		vampiro.setRandom(ran);
+		objetivo.setRandom(ran);
+		
+		vampiro.setSalud(960);
+		objetivo.setSalud(1000);
+		vampiro.jugarTurno(objetivo);
+		Assert.assertEquals(952, objetivo.getSalud());
+		
+		vampiro.setSalud(500);
+		objetivo.setSalud(1000);
+		vampiro.jugarTurno(objetivo);
+		Assert.assertEquals(586, vampiro.getSalud());
+		Assert.assertEquals(885, objetivo.getSalud());
+		
+		vampiro.setEnergia(0);
+		objetivo.setEnergia(1000);
+		vampiro.jugarTurno(objetivo);
+		Assert.assertEquals(135, vampiro.getEnergia());
+		Assert.assertEquals(865, objetivo.getEnergia());
+		
+		vampiro.setEnergia(0);
+		objetivo.setEnergia(0);
+		vampiro.setSalud(1000);
+		objetivo.setSalud(1000);
+		vampiro.jugarTurno(objetivo);
+		Assert.assertEquals(0, vampiro.getEnergia());
+		Assert.assertEquals(0, objetivo.getEnergia());
+	}
 
 	@Test
 	public void testAtaqueNormal() {
@@ -64,6 +98,9 @@ public class TestNpcVampiro {
 		vampiro.setRandom(ran);
 		vampiro.drenarSalud(objetivo);
 		Assert.assertEquals(734, objetivo.getSalud());
+		
+		vampiro.setEnergia(0);
+		Assert.assertEquals(false, vampiro.drenarSalud(objetivo));
 	}
 
 	@Test
@@ -101,6 +138,15 @@ public class TestNpcVampiro {
 		objetivo.setRandom(ran);
 
 		vampiro.ataqueNormal(objetivo);
+		Assert.assertEquals(960, objetivo.getSalud());
+	}
+	
+	@Test
+	public void testDanioInfimo() {
+		NpcVampiro vampiro = new NpcVampiro("Janson", 10);
+		NpcVampiro objetivo = new NpcVampiro("Riky", 10);
+
+		vampiro.daniarSalud(objetivo, 1);
 		Assert.assertEquals(960, objetivo.getSalud());
 	}
 

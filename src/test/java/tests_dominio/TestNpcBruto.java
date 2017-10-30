@@ -30,11 +30,44 @@ public class TestNpcBruto {
 	}
 
 	@Test
+	public void testJugarTurno() {
+		NpcBruto bruto = new NpcBruto("Bohr", 10);
+		NpcBruto objetivo = new NpcBruto("Gson", 10);
+		RandomGenerator ran = new MyRandomStub(0.7, 5);
+		bruto.setRandom(ran);
+		objetivo.setRandom(ran);
+		
+		objetivo.setSalud(1000);
+		bruto.jugarTurno(objetivo);
+		Assert.assertEquals(862, objetivo.getSalud());
+		
+		ran = new MyRandomStub(0.8, 5);
+		bruto.setRandom(ran);
+		bruto.setSalud(1000);
+		bruto.jugarTurno(objetivo);
+		objetivo.ataqueNormal(bruto);
+		Assert.assertEquals(931, bruto.getSalud());
+		
+		bruto.setEnergia(0);
+		bruto.jugarTurno(objetivo);
+		Assert.assertEquals(60, bruto.getEnergia());
+	}
+	
+	@Test
 	public void testAtaqueNormal() {
 		NpcBruto bruto = new NpcBruto("Bohr", 10);
 		NpcBruto objetivo = new NpcBruto("Gson", 10);
-
-		Assert.assertTrue(bruto.ataqueNormal(objetivo));
+		RandomGenerator ran = new MyRandomStub(1, 5);
+		bruto.setRandom(ran);
+		objetivo.setRandom(ran);
+		
+		Assert.assertEquals(true, bruto.ataqueNormal(objetivo));
+		
+		ran = new MyRandomStub(0.1, 5);
+		bruto.setRandom(ran);
+		objetivo.setSalud(1000);
+		bruto.ataqueNormal(objetivo);
+		Assert.assertEquals(632, objetivo.getSalud());
 	}
 
 	@Test
@@ -70,13 +103,36 @@ public class TestNpcBruto {
 		bruto.setRandom(ran);
 		bruto.setEnergia(0);
 		bruto.energizarse();
-		Assert.assertTrue(bruto.getEnergia() > 0);
+		Assert.assertEquals(60, bruto.getEnergia());
 		
 		ran = new MyRandomStub(0.15, 5);
 		bruto.setRandom(ran);
 		bruto.setEnergia(0);
 		bruto.energizarse();
-		Assert.assertTrue(bruto.getEnergia() == 0);
+		Assert.assertEquals(0, bruto.getEnergia());
+	}
+	
+	@Test
+	public void testEvasión() {
+		NpcBruto bruto = new NpcBruto("Bohr", 10);
+		NpcBruto objetivo = new NpcBruto("Riky", 10);
+		RandomGenerator ran = new MyRandomStub(1, 5);
+		bruto.setRandom(ran);
+
+		Assert.assertEquals(1250, objetivo.getSalud());
+		ran = new MyRandomStub(0.05, 5);
+		objetivo.setRandom(ran);
+		bruto.atacar(objetivo);
+		Assert.assertEquals(1250, objetivo.getSalud());
+	}
+	
+	@Test
+	public void testDanioInfimo() {
+		NpcBruto bruto = new NpcBruto("Bohr", 10);
+		NpcBruto objetivo = new NpcBruto("Riky", 10);
+
+		bruto.daniarSalud(objetivo, 1);
+		Assert.assertEquals(1250, objetivo.getSalud());
 	}
 
 }
