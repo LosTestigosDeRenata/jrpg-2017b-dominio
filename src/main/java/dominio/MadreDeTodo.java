@@ -41,8 +41,6 @@ public abstract class MadreDeTodo {
 
 	protected ArrayList<Item> items = new ArrayList<Item>();
 
-
-
 	/**
 	 * @param fuerza valor otorgado por
 	 * el constructor de NPC o Personaje.

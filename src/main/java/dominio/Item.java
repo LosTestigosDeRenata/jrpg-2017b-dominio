@@ -55,7 +55,6 @@ public class Item implements Serializable {
 	 * @throws IOException Cuando no se encuentra la foto del item.
 	 */
 	public BufferedImage getFoto() throws IOException {
-		// TODO Auto-generated method stub
 		return ImageIO.read(new File("recursos//" + foto));
 	}
 	/**
