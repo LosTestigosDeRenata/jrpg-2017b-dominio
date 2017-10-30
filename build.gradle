@@ -42,7 +42,7 @@ checkstyle {
     configFile = new File("src/test/resources/sun_checks.xml")
     ignoreFailures = true
 }
-
+ 
 /*cobertura {
     coverageFormats = ['html', 'xml']
 }*/

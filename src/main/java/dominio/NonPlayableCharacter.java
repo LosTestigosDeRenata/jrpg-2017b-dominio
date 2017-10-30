@@ -8,110 +8,48 @@ package dominio;
  * Implementa la Interfaz Peleable.
  */
 
-public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
-	/**
-	 * Numero que sirve de argumento para obtener la dificultad.
-	 */
-	private static final int ELEGIRDIF = 3;
-	/**
-	 * Salud del NPC.
-	 */
-	private int salud;
+public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleable
+{
 	/**
 	 * Dificultad aleatoria NPC.
 	 */
-	private static final int DIFICULTADALEATORIA = -1;
+	private static final int MULTIPLICADOREXPNPC = 29;
 	/**
-	 * Multiplicador de experiencia otorgada por el npc.
+	 * Salud tope del NPC.
 	 */
-	private static final int MULTIPLICADOREXPNPC = 30;
+	protected int saludTope;
 	/**
-	 * Multiplicador de fuerza para el golpe critico del npc.
+	 * Salud del NPC.
 	 */
-	private static final double MULTIPLICADORFUERZA = 1.5;
+	protected int salud;
 	/**
-	 * Numero a superar para poder ser atacado.
+	 * Energía tope del NPC.
 	 */
-	private static final double NUMEROPARASERATACADO = 0.15;
+	protected int energiaTope;
 	/**
-	 * Numero a superar para poder atacar.
+	 * Energía del NPC.
 	 */
-	private static final double NUMEROPARAATACAR = 0.15;
-	/**
-	 * Numero por el cual se divide la defensa cuando el npc es atacado.
-	 */
-	private static final int DIVISORDEDEFENSA = 2;
-	/**
-	 * Fuerza base del NPC.
-	 */
-	private static final int MODIFICADORBASEF = 10;
-	/**
-	 * Salud base del NPC.
-	 */
-	private static final int MODIFICADORBASES = 30;
-	/**
-	 * Defensa base del NPC.
-	 */
-	private static final int MODIFICADORBASED = 2;
-	/**
-	 * Multiplicador fuerza del NPC.
-	 */
-	private static final int MULTIPLICADORF = 3;
-	/**
-	 * Multiplicador salud del NPC.
-	 */
-	private static final int MULTIPLICADORS = 15;
-	/**
-	 * Multiplicador defensa del NPC.
-	 */
-	private static final int MULTIPLICADORD = 1;
-
-	// Estos se los agrego de momento para ver si funciona la batalla, a futuro vemos si quedan
-	private String nombreRaza;
-	private int saludTope;
+	protected int energia;
 
 	/**
-	 * Constructor de la Clase.
-	 * Dependiendo de la dificultad que se pasa por parámetro al
-	 * constructor, aumentará o disminuirá el valor de los
-	 * atributos fuerza salud y defensa.
+	 * Constructor de la clase.
 	 * @param nombre Nombre que se le otorga al NPC
 	 * @param nivel Nivel que se le otorga al NPC
-	 * @param dificultadNPC Valor entero
-	 * que produce una variación en los atributos.
 	 */
-	public NonPlayableCharacter(final String nombre, final int nivel, final int dificultadNPC) {
+	public NonPlayableCharacter(final String nombre, final int nivel) 
+	{
 		super(0, 0, nivel, nombre);
-
-		int dificultad;
-		if (dificultadNPC == DIFICULTADALEATORIA) {
-			dificultad = this.getRandom().nextInt(ELEGIRDIF);
-		} else {
-			dificultad = dificultadNPC;
-		}
-
-		this.aumentarFuerza(MODIFICADORBASEF * (dificultad + 1)
-				+ (nivel - 1) * MULTIPLICADORF * (dificultad + 1));
-		this.saludTope = this.salud = MODIFICADORBASES * (dificultad + 1)
-				+ (nivel - 1) * MULTIPLICADORS * (dificultad + 1);
-		this.aumentarDefensa(MODIFICADORBASED * (dificultad + 1)
-				+ (nivel - 1) * MULTIPLICADORD * (dificultad + 1));
 	}
 
 	/**
-	 * Retorna un entero.
-	 * Que la cantidad de experiencia que
-	 * debe sumarse al Personaje que
-	 * produjo la disminución de la salud del
-	 * NPC a 0. La misma sera MULTIPLCADOREXPNPC veces
-	 * el valor del atributo nivel
+	 * Retorna un entero que representa la experiencia que
+	 * otorgará el NPC al personaje que lo derrote.
 	 * @return Cantidad de experiencia a otorgar
 	 */
 	@Override
 	public final int otorgarExp() {
 		return this.getNivel() * MULTIPLICADOREXPNPC;
 	}
-
 
 	/**
 	 * Retorna un booleano.
@@ -123,7 +61,6 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	public final boolean estaVivo() {
 		return salud > 0;
 	}
-
 
 	/**
 	 * Retorna un entero que representa los puntos de salud del NPC.
@@ -142,6 +79,11 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 		this.salud = salud;
 	}
 
+	/*
+	 * A continuación, se definen acciones básicas para que el NPC las use mientras batalla.
+	 * Quedará a critero de cada subclase y cómo utilizarlos durante la batalla.
+	 */
+	
 	/**
 	 * Método que, dependiendo de MyRandom.nextdouble() y NUMEROPARAATACAR.
 	 * Puede ejecutar un ataque
@@ -151,46 +93,46 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 * los puntos de daño realizados
 	 */
 	@Override
-	public final int atacar(final Peleable atacado) {
-		if (this.getRandom().nextDouble() <= NUMEROPARAATACAR) {
-			return atacado.serAtacado((int) (this.getAtaque() * MULTIPLICADORFUERZA));
-		} else {
-			return atacado.serAtacado(this.getAtaque());
-		}
+	public final int atacar(final Peleable atacado) 
+	{
+		return atacado.serAtacado(this.getAtaque());
 	}
-
-	/**
-	 * Dependiendo de MyRandom.nextdouble() y NUMEROPARASERATACADO.
-	 * Puede disminuir el daño dependiendo del atributo DIVISORDEDEFENSA.
-	 * @param danioParam valor a ser descontado del atributo salud.
-	 * @return Retorna 0 si el ataque no fue realizado con exito
-	 */
-	@Override
-	public final int serAtacado(final int danioParam) {
-		int danio = danioParam;
-		if (this.getRandom().nextDouble() >= NUMEROPARASERATACADO) {
-			danio -= this.getDefensa() / DIVISORDEDEFENSA;
-			if (danio > 0) {
-				salud -= danio;
-				return danio;
-			}
-			return 0;
-		}
-		return 0;
+	
+	public final int daniarSalud (final Peleable atacado, int daño)
+	{
+		return atacado.serAtacado(daño);
 	}
-
-	/**
-	 * Método sin implementar.
-	 */
-	@Override
-	public void despuesDeTurno() { }
-	/**
-	 * Método sin implementar.
-	 * @param exp Experiencia a aumentar al npc.
-	 */
-	public void ganarExperiencia(final int exp) {
-
+	
+	public final int daniarEnergia (final Peleable atacado, int daño)
+	{
+		return atacado.recibirDanioEnergia(daño);
 	}
+	
+	// Voy a dejar que cada subclase implemente su propio método serAtacado
+	/**
+	 * Método abstracto que determina como recibirá daño el NPC.
+	 * @param daño Valor a ser descontado del atributo salud.
+	 */
+	public abstract int serAtacado(int daño);
+	
+	/**
+	 * Reduce la energía del Npc.
+	 * @param daño Valor a ser descontado del atributo energía
+	 */
+	public int recibirDanioEnergia (int daño)
+	{
+		if (daño > 0) 
+			reducirEnergia(daño);
+		
+		return daño;
+	}
+	
+	/**
+	 * Método abstracto que determina que es lo que hará el NPC cuando sea su turno en la batalla.
+	 * Cada subclase lo implementará a su propia manera, ya que aquí se definirá la IA
+	 * del NPC.
+	 */
+	public abstract void jugarTurno (Peleable objetivo);
 
 	/**
 	 * Retorna un entero que representa el atributo de Fuerza del NPC.
@@ -211,29 +153,36 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	}
 
 	/**
-	 * Retorna siempre un entero de valor 0.
-	 * @return retorna 0 porque NPC no tiene magia.
+	 * Aumenta la salud del NPC.
+	 * A diferencia de setSalud, este método valida que no supere la salud tope.
+	 * @param salud Entero con la salud a aumentar.
 	 */
-	@Override
-	public final int getMagia() {
-		return 0;
+	public void aumentarSalud (int salud)
+	{
+		if (this.salud + salud >= saludTope)
+			this.salud = saludTope;
+		else
+			this.salud += salud;
 	}
+	
 	/**
-	 * @return nombre de la raza del npc
+	 * Reduce la salud del NPC.
+	 * A diferencia de setSalud, este método valida que no caiga por debajo de 0.
+	 * @param salud Entero con la salud a reducir.
 	 */
-	public String getNombreRaza() {
-		return nombreRaza;
+	public void reducirSalud (int salud)
+	{
+		if (this.salud - salud <= 0)
+			this.salud = 0;
+		else
+			this.salud -= salud;
 	}
-	/**
-	 * @param nombreRaza Nueva Raza del npc
-	 */
-	public void setNombreRaza(final String nombreRaza) {
-		this.nombreRaza = nombreRaza;
-	}
-	/**
+	
+  /**
 	 * @return salud maxima del npc
 	 */
-	public int getSaludTope() {
+	public int getSaludTope()
+	{
 		return saludTope;
 	}
 	/**
@@ -242,5 +191,58 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	public void setSaludTope(final int saludTope) {
 		this.saludTope = saludTope;
 	}
+
+	/**
+	 * Aumenta la energía del NPC.
+	 * A diferencia de setEnergia, este método valida que no supere la energía tope.
+	 * @param energia Entero con la energía a aumentar.
+	 */
+	public void aumentarEnergia (int energia)
+	{
+		if (this.energia + energia >= energiaTope)
+			this.energia = energiaTope;
+		else
+			this.energia += energia;
+	}
 	
+	/**
+	 * Reduce la energía del NPC.
+	 * A diferencia de setEnergia, este método valida que no caiga por debajo de 0.
+	 * @param energia Entero con la energía a reducir.
+	 */
+	public void reducirEnergia (int energia)
+	{
+		if (this.energia - energia <= 0)
+			this.energia = 0;
+		else
+			this.energia -= energia;
+	}
+	
+	public int getEnergiaTope()
+	{
+		return energiaTope;
+	}
+
+	public void setEnergiaTope(int energiaTope)
+	{
+		this.energiaTope = energiaTope;
+	}
+
+	public void setEnergia(int energia)
+	{
+		this.energia = energia;
+	}
+	
+	public int getEnergia()
+	{
+		return energia;
+	}
+	/**
+	 * Devuelve siempre 0.
+	 * @return energia Entero siempre 0.
+	 */
+	@Override
+	public final int getMagia() {
+		return 0;
+	}
 }
