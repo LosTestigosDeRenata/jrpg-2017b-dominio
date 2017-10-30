@@ -97,12 +97,6 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
 	{
 		return atacado.serAtacado(this.getAtaque());
 	}
-
-	// El método de arriba es medio trucho porque no le puedo pasar el daño como parámetro.
-	// No me sirve como método genérico para las subclases porque no es suficientemente básico,
-	// ni me sirve como método único porque no es lo suficientemente versátil.
-	// El tema es que no quiero modificarlo porque hacerlo me obligaría a modificar la interfaz
-	// peleable y se rompería el juego en todos lados, así que prefiero utilizar este nuevo método:
 	
 	public final int daniarSalud (final Peleable atacado, int daño)
 	{
@@ -184,13 +178,17 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
 			this.salud -= salud;
 	}
 	
+  /**
+	 * @return salud maxima del npc
+	 */
 	public int getSaludTope()
 	{
 		return saludTope;
 	}
-
-	public void setSaludTope(int saludTope)
-	{
+	/**
+	 * @param saludTope Nueva salud maxima del npc
+	 */
+	public void setSaludTope(final int saludTope) {
 		this.saludTope = saludTope;
 	}
 
@@ -248,5 +246,3 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
 		return 0;
 	}
 }
-
-

@@ -14,11 +14,11 @@ test.ignoreFailures = true
 defaultTasks 'clean', 'compileJava', 'test', 'checkstyleMain', 'pmd', 'findbugsMain', 'jacocoTestReport'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 configurations {
-	pmdConf
+    pmdConf
 }
 
 dependencies {
@@ -27,20 +27,20 @@ dependencies {
     pmdConf group: 'pmd', name: 'pmd', version: '4.3'
 }
 
-/*buildscript {
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath group: 'net.saliman', name: 'gradle-cobertura-plugin', version: '1.1.0'
-	}
-}*/
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.saliman', name: 'gradle-cobertura-plugin', version: '1.1.0'
+    }
+}
 
 // Tareas
 
 checkstyle {
-	configFile = rootProject.file('src/test/resources/sun_checks.xml')
-	ignoreFailures = true
+    configFile = new File("src/test/resources/sun_checks.xml")
+    ignoreFailures = true
 }
  
 /*cobertura {
@@ -56,7 +56,7 @@ task pmd (dependsOn: compileJava) << {
         }
         reportFolder = new File(rootDir, "build/reports/pmd-cpd")
         if (!reportFolder.isDirectory()) {
-        	reportFolder.mkdirs()
+            reportFolder.mkdirs()
         }
         taskdef(name: 'pmd', classname: 'net.sourceforge.pmd.ant.PMDTask', classpath: configurations.pmdConf.asPath)
         taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask', classpath: configurations.pmdConf.asPath)
@@ -70,9 +70,9 @@ task pmd (dependsOn: compileJava) << {
                 }
         }
         cpd(minimumTokenCount: 10, format: 'xml',
-        	ignoreLiterals: 'true',
-        	ignoreIdentifiers: 'true',
-        	outputFile: 'build/reports/pmd-cpd/cpd.xml') {
+            ignoreLiterals: 'true',
+            ignoreIdentifiers: 'true',
+            outputFile: 'build/reports/pmd-cpd/cpd.xml') {
             fileSet(dir: "src/main/java") {
                 include(name: '**/*.java')
             }

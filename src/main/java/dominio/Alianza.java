@@ -11,12 +11,11 @@ public class Alianza {
 	 */
 	private final String nombre;
 	/**
-	 * Lista la cual contendra todos los integrantes de la alianza.
+	 * Lista la cual contendrá todos los integrantes de la alianza.
 	 */
 	private LinkedList<Personaje> aliados;
 
-	/**La clase Alianza tiene como función agrupar a los jugadores.
-	 * mediante una LinkedList de Personajes
+	/**
 	 * @param nombre Nombre que se le dará a la alianza
 	 */
 	public Alianza(final String nombre) {
@@ -53,7 +52,7 @@ public class Alianza {
 	 * Utilizando el método add() de la LinkedList
 	 * @param pj Personaje a agregarse a la lista de aliados
 	 */
-	public final void añadirPersonaje(final Personaje pj) {
+	public final void aniadirPersonaje(final Personaje pj) {
 		aliados.add(pj);
 	}
 }

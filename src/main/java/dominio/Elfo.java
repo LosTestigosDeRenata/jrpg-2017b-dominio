@@ -7,7 +7,7 @@ package dominio;
 */
 public class Elfo extends Personaje {
 	/**
-	 * Energia minima que se necesita para realizar una habilidad.
+	 * Energia mínima que se necesita para realizar una habilidad.
 	 */
 	private static final int ENERGIAMINIMA = 10;
 	/**
@@ -18,10 +18,11 @@ public class Elfo extends Personaje {
 	 * Bonus de energia por ser de raza Elfo.
 	 */
 	private static final int BONUSENERGIA = 10;
+	
+	private static final boolean NO_SE_EJECUTO = false;
+	
 
-	/** La clase Elfo hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban declarados en
-	 * la clase Personaje, como por ejemplo habilidadesRaza[]
+	/**
 	 * @param nombre Indica el nombre el personaje
 	 * @param casta Indica la casta(Raza) del personaje
 	 * @param id Identificador del personaje
@@ -29,11 +30,8 @@ public class Elfo extends Personaje {
 	public Elfo(final String nombre, final Casta casta, final int id) {
 		super(nombre, casta, id);
 	}
-	/** La clase Elfo hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban
-	 * declarados en la clase Personaje,
-	 * como por ejemplo habilidadesRaza[]
-	 * Recibe la mayoría de los atributos
+	/** 
+	 * Recibe la mayoría de los atributos de la clase Personaje
 	 * @param nombre Nombre del personaje
 	 * @param salud Salud del personaje
 	 * @param energia Energia del personaje
@@ -75,11 +73,10 @@ public class Elfo extends Personaje {
 	public final boolean habilidadRaza1(final Peleable atacado) {
 		if (this.getEnergia() >= ENERGIAMINIMA) {
 			this.reducirEnergia(ENERGIAMINIMA);
-			if (atacado.serAtacado(this.getFuerza() + this.getNivel() * MULTIPLICADORNIVEL) > 0) {
-				return true;
-			}
+			return(atacado.serAtacado(this.getFuerza() + this.getNivel() * MULTIPLICADORNIVEL) > 0);
 		}
-		return false;
+		
+		return NO_SE_EJECUTO;
 	}
 
 
@@ -105,11 +102,10 @@ public class Elfo extends Personaje {
 	public final boolean habilidadRaza2(final Peleable atacado) {
 		if (this.getEnergia() >= ENERGIAMINIMA) {
 			this.reducirEnergia(ENERGIAMINIMA);
-			if (atacado.serAtacado((this.getMagia())) > 0) {
-				return true;
-			}
+			return(atacado.serAtacado((this.getMagia())) > 0);
 		}
-		return false;
+		
+		return NO_SE_EJECUTO;
 	}
 	/**Retorna un vector de string con los nombres
 	 * de las habilidades de la raza.

@@ -17,10 +17,12 @@ public class Orco extends Personaje {
 	 * Numero por el cual se multiplicara la defensa.
 	 */
 	private static final int MULTIPLICADORDEFENSA = 2;
+	
+	private static final boolean NO_SE_EJECUTO = false;
+	
+	private static final boolean HABILIDAD_EJECUTADA = true;
 
-	/**La clase Orco hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban declarados en
-	 * la clase Personaje, como por ejemplo habilidadesRaza[]
+	/**
 	 * @param nombre Indica el nombre el personaje
 	 * @param casta Indica la casta(Raza) del personaje
 	 * @param id Identificador del personaje
@@ -28,10 +30,8 @@ public class Orco extends Personaje {
 	public Orco(final String nombre, final Casta casta, final int id) {
 		super(nombre, casta, id);
 	}
-	/**La clase Orco hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban declarados en
-	 * la clase Personaje, como por ejemplo habilidadesRaza[]
-	 * Recibe la mayoría de los atributos
+	/**
+	 * Recibe la mayoría de los atributos de la clase Personaje
 	 * @param nombre Nombre del personaje
 	 * @param salud Salud del personaje
 	 * @param energia Energia del personaje
@@ -69,11 +69,10 @@ public class Orco extends Personaje {
 	public final boolean habilidadRaza1(final Peleable atacado) {
 		if (this.getEnergia() >= ENERGIAMINIMA) {
 			this.reducirEnergia(ENERGIAMINIMA);
-			if (atacado.serAtacado(this.getDefensa() * MULTIPLICADORDEFENSA) > 0) {
-				return true;
-			}
+			return(atacado.serAtacado(this.getDefensa() * MULTIPLICADORDEFENSA) > 0);
+			
 		}
-		return false;
+		return NO_SE_EJECUTO;
 	}
 
 
@@ -100,10 +99,10 @@ public class Orco extends Personaje {
 			int danioCausado = atacado.serAtacado(this.getFuerza());
 			if (danioCausado > 0) {
 				this.serCurado(danioCausado);
-				return true;
+				return HABILIDAD_EJECUTADA;
 			}
 		}
-		return false;
+		return NO_SE_EJECUTO;
 	}
 	/**Retorna un vector de string con los nombres
 	 * de las habilidades de la raza.
