@@ -19,19 +19,19 @@ public abstract class MadreDeTodo {
 	protected int y;
 	
 	/**
-	 * Fuerza que recibira el personaje o npc.
+	 * Fuerza que recibirá el personaje o npc.
 	 */
 	private int fuerza;
 	/**
-	 * Defensa que recibira el personaje o npc.
+	 * Defensa que recibirá el personaje o npc.
 	 */
 	protected int defensa;
 	/**
-	 * Nivel que recibira el personaje o npc.
+	 * Nivel que recibirá el personaje o npc.
 	 */
 	private int nivel;
 	/**
-	 * Nombre que recibira el personaje o npc.
+	 * Nombre que recibirá el personaje o npc.
 	 */
 	private String nombre;
 	/**
@@ -43,10 +43,7 @@ public abstract class MadreDeTodo {
 
 
 
-	/** Clase abstracta.
-	 * Que tiene como
-	 * funcion tener los atributos que
-	 * comparten las clases NPC y Personaje
+	/**
 	 * @param fuerza valor otorgado por
 	 * el constructor de NPC o Personaje.
 	 * @param defensa valor otorgado por

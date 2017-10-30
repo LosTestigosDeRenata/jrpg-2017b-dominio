@@ -7,7 +7,7 @@ import java.util.HashMap;
 import javax.swing.DefaultListModel;
 
 /** Clase Personaje.
- * La cual sirve de base para la creacion de las distintas Razas.
+ * La cual sirve de base para la creación de las distintas Razas.
  */
 
 public abstract class Personaje extends MadreDeTodo implements Peleable, Serializable {

@@ -11,21 +11,21 @@ import java.io.Serializable;
 	 */
 public abstract class Casta implements Serializable {
 	/**
-	 * Numero que indica probabilidad.
+	 * Número que indica probabilidad.
 	 * Del personaje de realizar un golpe critico.
 	 */
 	private double probabilidadGolpeCritico;
 	/**
-	 * Numero que indica probabilidad.
+	 * Número que indica probabilidad.
 	 * Del personaje de evitar un ataque.
 	 */
 	private double probabilidadEvitarDanio;
 	/**
-	 * Numero por el cual sera multiplicado el ataque.
+	 * Número por el cual sera multiplicado el ataque.
 	 */
 	private double danioCritico;
 	/**
-	 * Probabilidad de evitar un golpe critico.
+	 * Probabilidad de evitar un golpe crítico.
 	 */
 	private static final double PROBEVITARGOLPC = 0.2;
 	/**
@@ -33,18 +33,10 @@ public abstract class Casta implements Serializable {
 	 */
 	private static final double PROBEVITARDANIO = 0.2;
 	/**
-	 *  Numero por el cual sera multiplicado el ataque por defecto.
+	 *  Número por el cual sera multiplicado el ataque por defecto.
 	 */
 	private static final double DANIOCRITICO = 1.5;
 
-
-	/** Clase abstracta de la cual heredarán las
-	 * clases Asesion,Guerrero,Hechicero.
-	 * Posee dos contructores, el contructor
-	 * por defecto (no recibe argumentos),
-	 * pondrá los atributos con sus
-	 * respectivos valores por defecto.
-	 */
 	public Casta() {
 		this.probabilidadGolpeCritico = PROBEVITARGOLPC;
 		this.probabilidadEvitarDanio = PROBEVITARDANIO;
