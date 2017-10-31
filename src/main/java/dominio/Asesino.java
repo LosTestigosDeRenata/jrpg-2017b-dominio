@@ -86,7 +86,7 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 	public final boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() >= ENERGIAMINIMA) {
 			caster.reducirEnergia(ENERGIAMINIMA);
-			return(atacado.serAtacado((int) (caster.getAtaque() * caster.getCasta().getDañoCritico())) > 0);
+			return(atacado.serAtacado((int) (caster.getAtaque() * caster.getCasta().getDanioCritico())) > 0);
 		}
 		
 		return NO_SE_EJECUTO;
