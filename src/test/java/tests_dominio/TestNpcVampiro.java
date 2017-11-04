@@ -112,18 +112,18 @@ public class TestNpcVampiro {
 		objetivo.setRandom(ran);
 
 		Assert.assertEquals(410, vampiro.getEnergia());
-		Assert.assertEquals(true, vampiro.drenarEnergía(objetivo));
+		Assert.assertEquals(true, vampiro.drenarEnergia(objetivo));
 		Assert.assertEquals(275, objetivo.getEnergia());
 		Assert.assertEquals(410, vampiro.getEnergia());
 
 		vampiro.setEnergia(0);
-		Assert.assertEquals(true, vampiro.drenarEnergía(objetivo));
+		Assert.assertEquals(true, vampiro.drenarEnergia(objetivo));
 		Assert.assertEquals(135, vampiro.getEnergia());
 
 		objetivo.setEnergia(1000);
 		ran = new MyRandomStub(0.15, 5);
 		vampiro.setRandom(ran);
-		vampiro.drenarEnergía(objetivo);
+		vampiro.drenarEnergia(objetivo);
 		Assert.assertEquals(764, objetivo.getEnergia());
 	}
 
