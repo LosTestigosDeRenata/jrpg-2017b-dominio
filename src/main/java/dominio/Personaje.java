@@ -191,6 +191,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
      * Nombre de la casta del personaje.
      */
     private String nombreCasta;
+    /**
+     * Indica si el personaje tiene el cheat de invulnerabilidad activada.
+     */
+    private boolean invulnerabilidadActivada;
 
     /**
      * Metodo que retorna las habilidades que posee el personaje. Segun la casta
@@ -448,11 +452,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
      */
     @Override
     public final int atacar(final Peleable atacado) {
-	if (salud == 0) {
+	if ((atacado.esInvulnerable() && !this.esInvulnerable()) || salud == 0) {
 	    return 0;
 	}
 	if (atacado.getSalud() > 0) {
-
 	    if (this.getRandom().nextDouble() <= this.casta.getProbabilidadGolpeCritico()
 		    + this.destreza / DIVISORDEDESTREZA) {
 		return atacado.serAtacado(this.golpeCritico());
@@ -1039,6 +1042,23 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
      */
     public final void setPuntosSkill(final int puntos) {
 	puntosSkill = puntos;
+    }
+    
+    /**
+     * Método que indica si el personaje es invulnerable.
+     * @return devuelve true si el personaje es invulnerable
+     */
+    public boolean esInvulnerable() {
+	return invulnerabilidadActivada;
+    }
+
+    /**
+     * Método que activa o desactiva el cheat de invulnerabilidad
+     * para el personaje.
+     * @param el valor booleano de la invulnerabilidad
+     */
+    public void setInvulnerabilidad(boolean invul) {
+	this.invulnerabilidadActivada = invul;
     }
 
 }

@@ -68,6 +68,12 @@ public interface Peleable {
      * @return Retorna un boolean si esta vivo o no el llamador.
      */
     boolean estaVivo();
+    
+    /**
+     * Metodo implementado en Personaje y en NonPlayableCharacter.
+     * @return Retorna un boolean si el jugador tiene el cheat de invulnerabilidad.
+     */
+    boolean esInvulnerable();
 
     /**
      * Método implementado en Personaje y NonPlayableCharacter.

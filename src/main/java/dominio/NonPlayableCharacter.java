@@ -88,15 +88,33 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
      */
     @Override
     public final int atacar(final Peleable atacado) {
-	return atacado.serAtacado(this.getAtaque());
+	if (!atacado.esInvulnerable())
+	    return atacado.serAtacado(this.getAtaque());
+	return 0;
     }
 
+    /**
+     * Método que reduce la salud de un peleable atacado.
+     * @param atacado Peleable a dañar
+     * @param danio Daño a efectuar
+     * @return devuelve el daño causado
+     */
     public final int daniarSalud(final Peleable atacado, final int danio) {
-	return atacado.serAtacado(danio);
+	if (!atacado.esInvulnerable())
+	    return atacado.serAtacado(danio);
+	return 0;
     }
 
+    /**
+     * Método que reduce la energía de un peleable atacado.
+     * @param atacado Peleable a dañar
+     * @param danio Daño en la energía a efectuar
+     * @return devuelve la energía dañada
+     */
     public final int daniarEnergia(final Peleable atacado, final int danio) {
-	return atacado.recibirDanioEnergia(danio);
+	if (!atacado.esInvulnerable())
+	    return atacado.recibirDanioEnergia(danio);
+	return 0;
     }
 
     // Voy a dejar que cada subclase implemente su propio método serAtacado
@@ -245,5 +263,13 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
     @Override
     public final int getMagia() {
 	return 0;
+    }
+    
+    /**
+     * Devuelve siempre false, un NPC nunca será invulnerable.
+     * @return devuelve false
+     */
+    public boolean esInvulnerable() {
+	return false;
     }
 }
