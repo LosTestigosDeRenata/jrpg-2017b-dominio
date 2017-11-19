@@ -367,6 +367,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
      */
     @Override
     public int recibirDanioEnergia(final int daño) {
+	if (invulnerabilidadActivada) {
+	    return 0;
+	}
+	
 	if (daño > 0) {
 	    reducirEnergia(daño);
 	}
@@ -452,7 +456,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
      */
     @Override
     public final int atacar(final Peleable atacado) {
-	if ((atacado.esInvulnerable() && !this.esInvulnerable()) || salud == 0) {
+	if (salud == 0) {
 	    return 0;
 	}
 	if (atacado.getSalud() > 0) {
@@ -573,19 +577,18 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
      */
     @Override
     public final int serAtacado(final int danioParam) {
+	if (invulnerabilidadActivada) {
+	    return 0;
+	}
+	
 	int danio = danioParam;
+	
 	if (this.getRandom().nextDouble() >= this.getCasta().getProbabilidadEvitarDanio()) {
 	    danio -= this.getDefensa();
-	    if (danio > 0) {
-		if (salud <= danio) {
-		    danio = salud;
-		    salud = 0;
-		} else {
-		    salud -= danio;
-		}
-		return danio;
-	    }
-	    return 0;
+	    if (danio <= 0)
+		return 0;
+	    
+	    return reducirSalud(danio);
 	}
 	return 0;
     }
@@ -956,6 +959,9 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
      */
     public final void aumentarEnergia(final int bonus) {
 	energia += bonus;
+	if (energia > energiaTope) {
+	    energia = energiaTope;
+	}
     }
 
     /**
@@ -975,8 +981,13 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
      * Método void que reduce la salud.
      * @param reduc monto entero que será reducido a la energía
      */
-    public final void reducirSalud(final int reduc) {
+    public final int reducirSalud(final int reduc) {
+	int saludOriginal = salud;
 	salud -= reduc;
+	if (salud < 0) {
+	    salud = 0;
+	} 
+	return saludOriginal - salud;
     }
 
     /**
@@ -985,6 +996,9 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
      */
     public final void aumentarSalud(final int bonus) {
 	salud += bonus;
+	if (salud > saludTope) {
+	    salud = saludTope;
+	}  
     }
 
     /**
