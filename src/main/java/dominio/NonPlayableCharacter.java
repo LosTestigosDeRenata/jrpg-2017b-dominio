@@ -88,9 +88,7 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
      */
     @Override
     public final int atacar(final Peleable atacado) {
-	if (!atacado.esInvulnerable())
-	    return atacado.serAtacado(this.getAtaque());
-	return 0;
+	return atacado.serAtacado(this.getAtaque());
     }
 
     /**
@@ -100,9 +98,7 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
      * @return devuelve el daño causado
      */
     public final int daniarSalud(final Peleable atacado, final int danio) {
-	if (!atacado.esInvulnerable())
-	    return atacado.serAtacado(danio);
-	return 0;
+	return atacado.serAtacado(danio);
     }
 
     /**
@@ -112,9 +108,7 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
      * @return devuelve la energía dañada
      */
     public final int daniarEnergia(final Peleable atacado, final int danio) {
-	if (!atacado.esInvulnerable())
-	    return atacado.recibirDanioEnergia(danio);
-	return 0;
+	return atacado.recibirDanioEnergia(danio);
     }
 
     // Voy a dejar que cada subclase implemente su propio método serAtacado
