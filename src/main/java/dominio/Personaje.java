@@ -297,6 +297,32 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	this.ataque = this.calcularPuntosDeAtaque();
 	this.magia = this.calcularPuntosDeMagia();
     }
+    
+    public Personaje(final String nombre, final int salud, final int energia, final int fuerza,
+			final int destreza, final int inteligencia, final Casta casta,
+			final int experiencia, final int nivel,
+			final int idPersonaje, final int saludTope, final int energiaTope) {
+		super(fuerza, 0, nivel, nombre);
+
+		this.salud = salud;
+		this.energia = energia;
+
+		this.destreza = destreza;
+		this.aumentarDefensa(destreza);
+		this.inteligencia = inteligencia;
+		this.casta = casta;
+
+		this.experiencia = experiencia;
+
+
+		this.saludTope = saludTope;
+		this.energiaTope = energiaTope;
+
+		this.idPersonaje = idPersonaje;
+
+		this.ataque = this.calcularPuntosDeAtaque();
+		this.magia = this.calcularPuntosDeMagia();
+	}
 
     /**
      * Retorna un entero con el ataque del personaje.
