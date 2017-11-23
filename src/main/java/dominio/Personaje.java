@@ -436,6 +436,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     public final Casta getCasta() {
 	return casta;
     }
+    
+    public void setCasta(Casta casta) {
+		this.casta = casta;
+    }
 
     /**
      * Retorna un entero con la experiencia del personaje.
