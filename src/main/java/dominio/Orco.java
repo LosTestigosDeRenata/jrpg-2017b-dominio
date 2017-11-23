@@ -49,6 +49,12 @@ public class Orco extends Personaje {
 	    final int inteligencia, final Casta casta, final int experiencia, final int nivel, final int idPersonaje) {
 	super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje);
     }
+    
+    public Orco(final String nombre, final int salud, final int energia, final int fuerza,
+			final int destreza, final int inteligencia, final Casta casta,
+			final int experiencia, final int nivel, final int idPersonaje, final int saludTope, final int energiaTope) {
+		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje, saludTope, energiaTope);
+	}
 
     /**
      * Retorna un booleano dependiendo de si se realizó exitosamente o no el
