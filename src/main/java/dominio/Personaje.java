@@ -1041,6 +1041,14 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	defensa = map.get("defensa").intValue();
 	casta.setProbabilidadEvitarDanio(map.get("probEvitarDanio").doubleValue());
     }
+    
+    public void actualizarAtributos(ArrayList<String> atributos, ArrayList<String> casta) // Lo agregue para poder actualizar los atributos personajes desde atributos del PaquetePelear. By Monardo. //
+	{
+		salud = Integer.parseInt(atributos.get(2));
+		energia = Integer.parseInt(atributos.get(3));
+		defensa = Integer.parseInt(atributos.get(10));
+		this.casta.setProbabilidadEvitarDanio(Double.parseDouble(casta.get(1)));
+	}
 
     /**
      * Método que realiza el trueque de items.
