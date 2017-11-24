@@ -49,10 +49,10 @@ public class RandomGenerator {
      * Método que siempre retorna 0. Será sobreescrito por las clases que
      * heredan.
      * @param valor Valor medio
-     * @param desvío Porcentaje del valor medio que se desviará
+     * @param desvio Porcentaje del valor medio que se desviará
      * @return @return Retorna siempre 0.
      */
-    public double aplicarDispersión(final double valor, final double desvío) {
+    public double aplicarDispersion(final double valor, final double desvio) {
 	return 0;
     }
 

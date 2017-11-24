@@ -1,5 +1,8 @@
 package dominio;
 
+/**
+ * NPC con diferentes habilidades tanto como para ataque como para defensa.
+ */
 public class NpcBrujo extends NonPlayableCharacter {
     /**
      * Atributos base del NPC
@@ -93,9 +96,9 @@ public class NpcBrujo extends NonPlayableCharacter {
 	    double proporcion = ((double) turnosRegenerarse) / REGENERARSE_TURNOS;
 
 	    int salud = (int) (this.getSaludTope() * REGENERARSE_PORCENTAJE_SALUD * proporcion);
-	    this.aumentarSalud((int) this.getRandom().aplicarDispersión(salud, REGENERARSE_DESVIO));
+	    this.aumentarSalud((int) this.getRandom().aplicarDispersion(salud, REGENERARSE_DESVIO));
 	    int energia = (int) (this.getSaludTope() * REGENERARSE_PORCENTAJE_ENERGIA * proporcion);
-	    this.aumentarEnergia((int) this.getRandom().aplicarDispersión(energia, REGENERARSE_DESVIO));
+	    this.aumentarEnergia((int) this.getRandom().aplicarDispersion(energia, REGENERARSE_DESVIO));
 
 	    turnosRegenerarse--;
 	}
@@ -172,7 +175,7 @@ public class NpcBrujo extends NonPlayableCharacter {
 	    danio = (int) (danio * BOLA_FUEGO_MULT_CRITICO);
 	}
 
-	daniarSalud(atacado, (int) this.getRandom().aplicarDispersión(danio, BOLA_FUEGO_DESVIO));
+	daniarSalud(atacado, (int) this.getRandom().aplicarDispersion(danio, BOLA_FUEGO_DESVIO));
 	this.energia -= BOLA_FUEGO_COSTE_ENERGIA;
 
 	return true;
@@ -210,9 +213,9 @@ public class NpcBrujo extends NonPlayableCharacter {
 	}
 
 	int salud = (int) (this.getSaludTope() * REGENERARSE_PORCENTAJE_SALUD);
-	this.aumentarSalud((int) this.getRandom().aplicarDispersión(salud, REGENERARSE_DESVIO));
+	this.aumentarSalud((int) this.getRandom().aplicarDispersion(salud, REGENERARSE_DESVIO));
 	int energia = (int) (this.getSaludTope() * REGENERARSE_PORCENTAJE_ENERGIA);
-	this.aumentarEnergia((int) this.getRandom().aplicarDispersión(energia, REGENERARSE_DESVIO));
+	this.aumentarEnergia((int) this.getRandom().aplicarDispersion(energia, REGENERARSE_DESVIO));
 	// el -1 es porque la primera recuperación de salud y energía la hace en
 	// el momento
 	this.turnosRegenerarse = REGENERARSE_TURNOS - 1;

@@ -31,10 +31,10 @@ public class TestMyRandom {
 	public void testDispersión() {
 		RandomGenerator ran = new MyRandom();
 
-		double val = ran.aplicarDispersión(1, 0.2);
+		double val = ran.aplicarDispersion(1, 0.2);
 		Assert.assertTrue(val >= 0.8 && val <= 1.2);
 
-		val = ran.aplicarDispersión(8, 0.5);
+		val = ran.aplicarDispersion(8, 0.5);
 		Assert.assertTrue(val >= 4 && val <= 12);
 	}
 

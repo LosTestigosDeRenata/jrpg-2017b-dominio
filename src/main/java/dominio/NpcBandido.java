@@ -1,5 +1,8 @@
 package dominio;
 
+/**
+ * NPC agresivo con altas chances de efectuar ataques críticos.
+ */
 public class NpcBandido extends NonPlayableCharacter {
     /**
      * Atributos base del NPC
@@ -70,7 +73,6 @@ public class NpcBandido extends NonPlayableCharacter {
 	    if (danio > 0) {
 		this.salud -= danio;
 	    }
-
 	}
 	return danio;
     }
@@ -92,7 +94,6 @@ public class NpcBandido extends NonPlayableCharacter {
 		    if (!ataqueDoble(objetivo)) {
 			ataqueNormal(objetivo);
 		    }
-
 		} else {
 		    ataqueNormal(objetivo);
 		}
@@ -152,7 +153,7 @@ public class NpcBandido extends NonPlayableCharacter {
 	    danio = (int) (danio * ATAQUENORMAL_MULT_CRITICO);
 	}
 
-	daniarSalud(atacado, (int) this.getRandom().aplicarDispersión(danio, ATAQUENORMAL_DESVIO));
+	daniarSalud(atacado, (int) this.getRandom().aplicarDispersion(danio, ATAQUENORMAL_DESVIO));
 
 	// El ataque normal para el bandido siempre se puede efectuar.
 	return true;
@@ -174,7 +175,7 @@ public class NpcBandido extends NonPlayableCharacter {
 	    danio = (int) (danio * ATAQUEDOBLE_MULT_CRITICO);
 	}
 
-	daniarSalud(atacado, (int) this.getRandom().aplicarDispersión(danio, ATAQUEDOBLE_DESVIO));
+	daniarSalud(atacado, (int) this.getRandom().aplicarDispersion(danio, ATAQUEDOBLE_DESVIO));
 	this.energia -= ATAQUEDOBLE_COSTE_ENERGIA;
 
 	return true;
@@ -190,7 +191,7 @@ public class NpcBandido extends NonPlayableCharacter {
 	}
 
 	int salud = (int) (this.getNivel() * CURARSE_MULT_NIVEL);
-	this.aumentarSalud((int) this.getRandom().aplicarDispersión(salud, CURARSE_DESVIO));
+	this.aumentarSalud((int) this.getRandom().aplicarDispersion(salud, CURARSE_DESVIO));
 	this.energia -= CURARSE_COSTE_ENERGIA;
 
 	return true;
@@ -202,7 +203,7 @@ public class NpcBandido extends NonPlayableCharacter {
      */
     public boolean energizarse() {
 	int energia = (int) (this.getNivel() * ENERGIZARSE_MULT_NIVEL);
-	this.aumentarEnergia((int) this.getRandom().aplicarDispersión(energia, ENERGIZARSE_DESVIO));
+	this.aumentarEnergia((int) this.getRandom().aplicarDispersion(energia, ENERGIZARSE_DESVIO));
 
 	// el bandido siempre podrá energizarse
 	return true;

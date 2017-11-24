@@ -115,6 +115,7 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
     /**
      * Método abstracto que determina como recibirá danio el NPC.
      * @param danio Valor a ser descontado del atributo salud.
+     * @return devuelve el daño causado
      */
     @Override
     public abstract int serAtacado(int danio);
@@ -122,6 +123,7 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
     /**
      * Reduce la energía del Npc.
      * @param danio Valor a ser descontado del atributo energía
+     * @return devuelve la energía perdida
      */
     @Override
     public int recibirDanioEnergia(final int danio) {
@@ -136,7 +138,7 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
      * Método abstracto que determina que es lo que hará el NPC cuando sea su
      * turno en la batalla. Cada subclase lo implementará a su propia manera, ya
      * que aquí se definirá la IA del NPC.
-     * @param objetivo
+     * @param objetivo el peleable rival
      */
     public abstract void jugarTurno(Peleable objetivo);
 
@@ -258,7 +260,7 @@ public abstract class NonPlayableCharacter extends MadreDeTodo implements Peleab
     public final int getMagia() {
 	return 0;
     }
-    
+
     /**
      * Devuelve siempre false, un NPC nunca será invulnerable.
      * @return devuelve false

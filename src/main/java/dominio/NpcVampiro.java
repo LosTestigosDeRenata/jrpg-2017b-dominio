@@ -1,5 +1,8 @@
 package dominio;
 
+/**
+ * NPC que roba salud y energía del personaje enemigo.
+ */
 public class NpcVampiro extends NonPlayableCharacter {
     /**
      * Atributos base del NPC
@@ -98,7 +101,7 @@ public class NpcVampiro extends NonPlayableCharacter {
     public boolean ataqueNormal(final Peleable atacado) {
 	int danio = this.getAtaque();
 
-	daniarSalud(atacado, (int) this.getRandom().aplicarDispersión(danio, ATAQUENORMAL_DESVIO));
+	daniarSalud(atacado, (int) this.getRandom().aplicarDispersion(danio, ATAQUENORMAL_DESVIO));
 
 	// El ataque normal para el vampiro siempre se puede efectuar.
 	return true;
@@ -120,7 +123,7 @@ public class NpcVampiro extends NonPlayableCharacter {
 	    danio = (int) (danio * DRENARSALUD_MULT_CRITICO);
 	}
 
-	int danioCausado = daniarSalud(atacado, (int) this.getRandom().aplicarDispersión(danio, DRENARSALUD_DESVIO));
+	int danioCausado = daniarSalud(atacado, (int) this.getRandom().aplicarDispersion(danio, DRENARSALUD_DESVIO));
 
 	// el vampiro se cura un porcentaje del danio causado
 	this.aumentarSalud((int) (danioCausado * DRENARSALUD_PORCENTAJE_SALUD_CURADA));
@@ -141,7 +144,7 @@ public class NpcVampiro extends NonPlayableCharacter {
 	    danio = (int) (danio * DRENARENERGIA_MULT_CRITICO);
 	}
 
-	int danioEnergia = (int) this.getRandom().aplicarDispersión(danio, DRENARENERGIA_DESVIO);
+	int danioEnergia = (int) this.getRandom().aplicarDispersion(danio, DRENARENERGIA_DESVIO);
 
 	// robo la energía del atacado
 	this.aumentarEnergia(daniarEnergia(atacado, danioEnergia));

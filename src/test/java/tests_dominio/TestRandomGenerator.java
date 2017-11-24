@@ -36,7 +36,7 @@ public class TestRandomGenerator {
 
 	@Test
 	public void testDispersión() {
-		Assert.assertEquals(0, ran.aplicarDispersión(8, 0.2), 0.00001);
+		Assert.assertEquals(0, ran.aplicarDispersion(8, 0.2), 0.00001);
 	}
 
 }

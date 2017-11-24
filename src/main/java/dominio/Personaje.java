@@ -297,32 +297,30 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	this.ataque = this.calcularPuntosDeAtaque();
 	this.magia = this.calcularPuntosDeMagia();
     }
-    
-    public Personaje(final String nombre, final int salud, final int energia, final int fuerza,
-			final int destreza, final int inteligencia, final Casta casta,
-			final int experiencia, final int nivel,
-			final int idPersonaje, final int saludTope, final int energiaTope) {
-		super(fuerza, 0, nivel, nombre);
 
-		this.salud = salud;
-		this.energia = energia;
+    public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
+	    final int inteligencia, final Casta casta, final int experiencia, final int nivel, final int idPersonaje,
+	    final int saludTope, final int energiaTope) {
+	super(fuerza, 0, nivel, nombre);
 
-		this.destreza = destreza;
-		this.aumentarDefensa(destreza);
-		this.inteligencia = inteligencia;
-		this.casta = casta;
+	this.salud = salud;
+	this.energia = energia;
 
-		this.experiencia = experiencia;
+	this.destreza = destreza;
+	this.aumentarDefensa(destreza);
+	this.inteligencia = inteligencia;
+	this.casta = casta;
 
+	this.experiencia = experiencia;
 
-		this.saludTope = saludTope;
-		this.energiaTope = energiaTope;
+	this.saludTope = saludTope;
+	this.energiaTope = energiaTope;
 
-		this.idPersonaje = idPersonaje;
+	this.idPersonaje = idPersonaje;
 
-		this.ataque = this.calcularPuntosDeAtaque();
-		this.magia = this.calcularPuntosDeMagia();
-	}
+	this.ataque = this.calcularPuntosDeAtaque();
+	this.magia = this.calcularPuntosDeMagia();
+    }
 
     /**
      * Retorna un entero con el ataque del personaje.
@@ -396,7 +394,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	if (invulnerabilidadActivada) {
 	    return 0;
 	}
-	
+
 	if (daño > 0) {
 	    reducirEnergia(daño);
 	}
@@ -436,9 +434,9 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     public final Casta getCasta() {
 	return casta;
     }
-    
-    public void setCasta(Casta casta) {
-		this.casta = casta;
+
+    public void setCasta(final Casta casta) {
+	this.casta = casta;
     }
 
     /**
@@ -610,14 +608,15 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	if (invulnerabilidadActivada) {
 	    return 0;
 	}
-	
+
 	int danio = danioParam;
-	
+
 	if (this.getRandom().nextDouble() >= this.getCasta().getProbabilidadEvitarDanio()) {
 	    danio -= this.getDefensa();
-	    if (danio <= 0)
+	    if (danio <= 0) {
 		return 0;
-	    
+	    }
+
 	    return reducirSalud(danio);
 	}
 	return 0;
@@ -1016,7 +1015,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	salud -= reduc;
 	if (salud < 0) {
 	    salud = 0;
-	} 
+	}
 	return saludOriginal - salud;
     }
 
@@ -1028,7 +1027,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	salud += bonus;
 	if (salud > saludTope) {
 	    salud = saludTope;
-	}  
+	}
     }
 
     /**
@@ -1041,14 +1040,28 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	defensa = map.get("defensa").intValue();
 	casta.setProbabilidadEvitarDanio(map.get("probEvitarDanio").doubleValue());
     }
-    
-    public void actualizarAtributos(ArrayList<String> atributos, ArrayList<String> casta) // Lo agregue para poder actualizar los atributos personajes desde atributos del PaquetePelear. By Monardo. //
-	{
-		salud = Integer.parseInt(atributos.get(2));
-		energia = Integer.parseInt(atributos.get(3));
-		defensa = Integer.parseInt(atributos.get(10));
-		this.casta.setProbabilidadEvitarDanio(Double.parseDouble(casta.get(1)));
-	}
+
+    public void actualizarAtributos(final ArrayList<String> atributos, final ArrayList<String> casta) // Lo
+											  // agregue
+											  // para
+											  // poder
+											  // actualizar
+											  // los
+											  // atributos
+											  // personajes
+											  // desde
+											  // atributos
+											  // del
+											  // PaquetePelear.
+											  // By
+											  // Monardo.
+											  // //
+    {
+	salud = Integer.parseInt(atributos.get(2));
+	energia = Integer.parseInt(atributos.get(3));
+	defensa = Integer.parseInt(atributos.get(10));
+	this.casta.setProbabilidadEvitarDanio(Double.parseDouble(casta.get(1)));
+    }
 
     /**
      * Método que realiza el trueque de items.
@@ -1095,21 +1108,22 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     public final void setPuntosSkill(final int puntos) {
 	puntosSkill = puntos;
     }
-    
+
     /**
      * Método que indica si el personaje es invulnerable.
      * @return devuelve true si el personaje es invulnerable
      */
+    @Override
     public boolean esInvulnerable() {
 	return invulnerabilidadActivada;
     }
 
     /**
-     * Método que activa o desactiva el cheat de invulnerabilidad
-     * para el personaje.
+     * Método que activa o desactiva el cheat de invulnerabilidad para el
+     * personaje.
      * @param el valor booleano de la invulnerabilidad
      */
-    public void setInvulnerabilidad(boolean invul) {
+    public void setInvulnerabilidad(final boolean invul) {
 	this.invulnerabilidadActivada = invul;
     }
 

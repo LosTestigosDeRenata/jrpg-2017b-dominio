@@ -1,5 +1,8 @@
 package dominio;
 
+/**
+ * NPC defensivo con mucha salud y resistencia a los ataques.
+ */
 public class NpcBruto extends NonPlayableCharacter {
     /**
      * Atributos base del NPC
@@ -90,7 +93,8 @@ public class NpcBruto extends NonPlayableCharacter {
     }
 
     /**
-     * Ataque simple que causa poco danio al enemigo y se puede utilizar siempre.
+     * Ataque simple que causa poco danio al enemigo y se puede utilizar
+     * siempre.
      * @param atacado Peleable que será víctima del ataque.
      * @return Devuelve true si se pudo efectuar el ataque.
      */
@@ -101,7 +105,7 @@ public class NpcBruto extends NonPlayableCharacter {
 	    danio = (int) (danio * ATAQUENORMAL_MULT_CRITICO);
 	}
 
-	daniarSalud(atacado, (int) this.getRandom().aplicarDispersión(danio, ATAQUENORMAL_DESVIO));
+	daniarSalud(atacado, (int) this.getRandom().aplicarDispersion(danio, ATAQUENORMAL_DESVIO));
 
 	// El ataque normal para el bruto siempre se puede efectuar.
 	return true;
@@ -139,7 +143,7 @@ public class NpcBruto extends NonPlayableCharacter {
 	}
 
 	int energia = (int) (this.getNivel() * ENERGIZARSE_MULT_NIVEL);
-	this.aumentarEnergia((int) this.getRandom().aplicarDispersión(energia, ENERGIZARSE_DESVIO));
+	this.aumentarEnergia((int) this.getRandom().aplicarDispersion(energia, ENERGIZARSE_DESVIO));
 
 	// el bandido siempre podrá energizarse
 	return true;

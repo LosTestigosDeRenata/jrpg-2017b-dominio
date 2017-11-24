@@ -34,6 +34,6 @@ public class TestRandomStub {
 	@Test
 	public void testDispersión() {
 		RandomGenerator ran = new MyRandomStub(0, 0);
-		Assert.assertEquals(8, ran.aplicarDispersión(8, 0.2), 0.00001);
+		Assert.assertEquals(8, ran.aplicarDispersion(8, 0.2), 0.00001);
 	}
 }

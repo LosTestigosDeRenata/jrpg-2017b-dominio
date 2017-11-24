@@ -51,14 +51,14 @@ public class MyRandom extends RandomGenerator {
      * Permite aplicar una dispersión a un valor según un porcentaje
      * determinado.
      * @param valor Valor medio
-     * @param desvío Porcentaje que representa que tan alejado puede estar el
+     * @param desvio Porcentaje que representa que tan alejado puede estar el
      *            valor final de la media.
      * @return Retorna un double que se encuentra entre valor * (1 - desvío) y
      *         valor * (1 + desvío)
      */
     @Override
-    public double aplicarDispersión(final double valor, final double desvío) {
-	return valor * this.rangoDouble(1 - desvío, 1 + desvío);
+    public double aplicarDispersion(final double valor, final double desvio) {
+	return valor * this.rangoDouble(1 - desvio, 1 + desvio);
     }
 
 }

@@ -69,12 +69,12 @@ public class MyRandomStub extends RandomGenerator {
     /**
      * Método que retorna el parámetro valor.
      * @param valor Valor medio
-     * @param desvío Porcentaje que representa que tan alejado puede estar el
+     * @param desvio Porcentaje que representa que tan alejado puede estar el
      *            valor final de la media.
      * @return Retorna el parámetro valor.
      */
     @Override
-    public double aplicarDispersión(final double valor, final double desvío) {
+    public double aplicarDispersion(final double valor, final double desvio) {
 	return valor;
     }
 
