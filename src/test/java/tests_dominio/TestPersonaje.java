@@ -6,7 +6,7 @@ import org.junit.Test;
 import dominio.*;
 
 public class TestPersonaje {
-
+    
     @Test
     public void testHumano() {
 	Humano h = new Humano("Nicolas", new Guerrero(), 1);
@@ -29,6 +29,19 @@ public class TestPersonaje {
 	Assert.assertEquals(10, h3.getFuerza());
 	Assert.assertEquals(15, h3.getDestreza());
 	Assert.assertEquals(10, h3.getInteligencia());
+	
+	Humano h4 = new Humano("Ricky", 10, 15, 5, 4, 3, new Asesino(), 100, 5, 2, 150, 200);
+	Assert.assertEquals("Ricky", h4.getNombre());
+	Assert.assertEquals(10, h4.getSalud());
+	Assert.assertEquals(15, h4.getEnergia());
+	Assert.assertEquals(5, h4.getFuerza());
+	Assert.assertEquals(4, h4.getDestreza());
+	Assert.assertEquals(3, h4.getInteligencia());
+	Assert.assertEquals(100, h4.getExperiencia());
+	Assert.assertEquals(5, h4.getNivel());
+	Assert.assertEquals(2, h4.getIdPersonaje());
+	Assert.assertEquals(150, h4.getSaludTope());
+	Assert.assertEquals(200, h4.getEnergiaTope());
     }
 
     @Test
@@ -53,6 +66,19 @@ public class TestPersonaje {
 	Assert.assertEquals(10, e3.getFuerza());
 	Assert.assertEquals(15, e3.getDestreza());
 	Assert.assertEquals(10, e3.getInteligencia());
+	
+	Elfo e4 = new Elfo("Ricky", 10, 15, 5, 4, 3, new Asesino(), 100, 5, 2, 150, 200);
+	Assert.assertEquals("Ricky", e4.getNombre());
+	Assert.assertEquals(10, e4.getSalud());
+	Assert.assertEquals(15, e4.getEnergia());
+	Assert.assertEquals(5, e4.getFuerza());
+	Assert.assertEquals(4, e4.getDestreza());
+	Assert.assertEquals(3, e4.getInteligencia());
+	Assert.assertEquals(100, e4.getExperiencia());
+	Assert.assertEquals(5, e4.getNivel());
+	Assert.assertEquals(2, e4.getIdPersonaje());
+	Assert.assertEquals(150, e4.getSaludTope());
+	Assert.assertEquals(200, e4.getEnergiaTope());
     }
 
     @Test
@@ -77,5 +103,18 @@ public class TestPersonaje {
 	Assert.assertEquals(10, o3.getFuerza());
 	Assert.assertEquals(15, o3.getDestreza());
 	Assert.assertEquals(10, o3.getInteligencia());
+	
+	Orco o4 = new Orco("Ricky", 10, 15, 5, 4, 3, new Asesino(), 100, 5, 2, 150, 200);
+	Assert.assertEquals("Ricky", o4.getNombre());
+	Assert.assertEquals(10, o4.getSalud());
+	Assert.assertEquals(15, o4.getEnergia());
+	Assert.assertEquals(5, o4.getFuerza());
+	Assert.assertEquals(4, o4.getDestreza());
+	Assert.assertEquals(3, o4.getInteligencia());
+	Assert.assertEquals(100, o4.getExperiencia());
+	Assert.assertEquals(5, o4.getNivel());
+	Assert.assertEquals(2, o4.getIdPersonaje());
+	Assert.assertEquals(150, o4.getSaludTope());
+	Assert.assertEquals(200, o4.getEnergiaTope());
     }
 }
