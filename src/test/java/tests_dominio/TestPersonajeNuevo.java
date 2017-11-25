@@ -155,7 +155,7 @@ public class TestPersonajeNuevo {
 	public void testAumentarSalud() {
 		Personaje p1 = new Humano("Ben Affleck",new Asesino(),2);
 		p1.aumentarSalud(10);
-		Assert.assertEquals(115, p1.getSalud());
+		Assert.assertEquals(105, p1.getSalud());
 	}
 	
 	@Test
