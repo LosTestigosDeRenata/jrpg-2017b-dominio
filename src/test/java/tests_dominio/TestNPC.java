@@ -90,13 +90,13 @@ public class TestNPC {
 	 */
 	Assert.assertEquals(0, npc.getMagia());
     }
-    
+
     @Test
     public void testEsInvulnerable() {
 	NonPlayableCharacter npc = new NpcVampiro("Arturo", 1);
 	Assert.assertEquals(false, npc.esInvulnerable());
     }
-    
+
     @Test
     public void testDaniarPersonajeInvulnerable() {
 	NonPlayableCharacter npc = new NpcVampiro("Arturo", 1);

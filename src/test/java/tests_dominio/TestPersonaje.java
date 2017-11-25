@@ -6,7 +6,7 @@ import org.junit.Test;
 import dominio.*;
 
 public class TestPersonaje {
-    
+
     @Test
     public void testHumano() {
 	Humano h = new Humano("Nicolas", new Guerrero(), 1);
@@ -29,7 +29,7 @@ public class TestPersonaje {
 	Assert.assertEquals(10, h3.getFuerza());
 	Assert.assertEquals(15, h3.getDestreza());
 	Assert.assertEquals(10, h3.getInteligencia());
-	
+
 	Humano h4 = new Humano("Ricky", 10, 15, 5, 4, 3, new Asesino(), 100, 5, 2, 150, 200);
 	Assert.assertEquals("Ricky", h4.getNombre());
 	Assert.assertEquals(10, h4.getSalud());
@@ -66,7 +66,7 @@ public class TestPersonaje {
 	Assert.assertEquals(10, e3.getFuerza());
 	Assert.assertEquals(15, e3.getDestreza());
 	Assert.assertEquals(10, e3.getInteligencia());
-	
+
 	Elfo e4 = new Elfo("Ricky", 10, 15, 5, 4, 3, new Asesino(), 100, 5, 2, 150, 200);
 	Assert.assertEquals("Ricky", e4.getNombre());
 	Assert.assertEquals(10, e4.getSalud());
@@ -103,7 +103,7 @@ public class TestPersonaje {
 	Assert.assertEquals(10, o3.getFuerza());
 	Assert.assertEquals(15, o3.getDestreza());
 	Assert.assertEquals(10, o3.getInteligencia());
-	
+
 	Orco o4 = new Orco("Ricky", 10, 15, 5, 4, 3, new Asesino(), 100, 5, 2, 150, 200);
 	Assert.assertEquals("Ricky", o4.getNombre());
 	Assert.assertEquals(10, o4.getSalud());

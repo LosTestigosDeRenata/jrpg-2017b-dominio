@@ -61,7 +61,7 @@ public class TestDaño {
 	Assert.assertEquals(0, o.atacar(h));
 	Assert.assertEquals(100, h.atacar(o));
 	o.serCurado(100);
-	
+
 	h.setInvulnerabilidad(false);
 	o.setInvulnerabilidad(false);
 	Assert.assertEquals(100, o.atacar(h));

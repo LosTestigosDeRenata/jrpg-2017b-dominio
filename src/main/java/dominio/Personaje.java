@@ -197,7 +197,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     private boolean invulnerabilidadActivada;
 
     /**
-     * Metodo que retorna las habilidades que posee el personaje. Segun la casta
+     * Método que retorna las habilidades que posee el personaje. Segun la casta
      * del mismo.
      * @return String[] de habilidades casta.
      */
@@ -207,7 +207,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo estatico. Que sirve para cargar la tabla de niveles de personaje.
+     * Método estatico. Que sirve para cargar la tabla de niveles de personaje.
      */
     public static void cargarTablaNivel() {
 	Personaje.setTablaDeNiveles(new int[CANTIDADNIVELES]);
@@ -332,7 +332,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que sobreescribe el atributo de ataque con el parametro
+     * Método void que sobreescribe el atributo de ataque con el parametro
      * enviado.
      * @param ataque nuevo valor del ataque del peronaje.
      */
@@ -351,7 +351,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que sobreescribe el atributo de magia. con el parámatero.
+     * Método void que sobreescribe el atributo de magia. con el parámatero.
      * @param magia Nuevo valor de magia del personaje.
      */
     public final void setMagia(final int magia) {
@@ -367,7 +367,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que sobreescribe el atributo clan. Añade al personaje
+     * Método void que sobreescribe el atributo clan. Añade al personaje
      * llamador al clan enviado como parámetro.
      * @param clan Nueva del personaje.
      */
@@ -499,7 +499,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un entero. Que depende a que casta pertenece el
+     * Método que retorna un entero. Que depende a que casta pertenece el
      * personaje y que ataque poseaa. El daño critico se obtiene de la clase
      * casta. El entero surge de la multiplicacion del ataque del personaje y el
      * daño critico de la casta que pertenece.
@@ -510,7 +510,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un boolean si el personaje puede atacar o no. Devuelve
+     * Método que retorna un boolean si el personaje puede atacar o no. Devuelve
      * true si la energia es mayor a la ENERGIAMINIMA, puede atacar, y falso si
      * la primera es menor a la ENERGIAMINIMA. ENERGIAMINIMA atributo static de
      * la clase Personaje.
@@ -521,7 +521,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un entero que representa los puntos de ataque que
+     * Método que retorna un entero que representa los puntos de ataque que
      * realizara el personaje. Estos puntos dependen de la fuerza del personaje
      * y MULTIPLICADORFZA. MULTIPLICADORFZA atributo static de la clase
      * Personaje.
@@ -532,7 +532,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un entero con los puntos de defensa. Estos puntos son
+     * Método que retorna un entero con los puntos de defensa. Estos puntos son
      * iguales a los puntos de destreza del personaje.
      * @return Los puntos de destreza del personaje.
      */
@@ -541,7 +541,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un entero con los puntos de magia del personaje. Estos
+     * Método que retorna un entero con los puntos de magia del personaje. Estos
      * puntos dependen de la multiplicacion de la inteligencia del personaje y
      * MULTIPLICADORMGA. MULTIPLICADORMGA atributo static de la clase Personaje.
      * @return Puntos de magia del personaje
@@ -551,7 +551,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que establece la salud actual del personaje como la maxima
+     * Método void que establece la salud actual del personaje como la maxima
      * posible que puede tener.
      */
     public final void restablecerSalud() {
@@ -559,7 +559,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que establece la energia del personaje como la maxima posible
+     * Método void que establece la energia del personaje como la maxima posible
      * que puede tener.
      */
     public final void restablecerEnergia() {
@@ -567,7 +567,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que modifica los atributos de ataque, defensa y magia del
+     * Método void que modifica los atributos de ataque, defensa y magia del
      * personaje. Ataque depende de la fuerza del personaje y de
      * MULTIPLICADORFZA(constante). Defensa depende de la destreza. Magia
      * depende de la inteligencia y de MULTIPLICADORMGA (constante).
@@ -582,7 +582,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna boolean heredado de la interface Peleable. Si la salud
+     * Método que retorna boolean heredado de la interface Peleable. Si la salud
      * del personaje es mayor a 0 este está vivo.
      * @return Retorna si esta vivo o no el personaje.
      */
@@ -623,7 +623,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un entero de los puntos de salud quitados al
+     * Método que retorna un entero de los puntos de salud quitados al
      * personaje. Al daño total recibido se le resta la defensa del personaje.
      * Si este daño es menor o igual a la salud del personaje se le quita daño
      * puntos de salud. Si el daño es mayor a la salud se establece la salud del
@@ -647,7 +647,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna los puntos de energia quitados al personaje. Al daño
+     * Método que retorna los puntos de energia quitados al personaje. Al daño
      * total ejercido al personaje se le resta la defensa del mismo. Si este
      * daño es menor o igual a la energia del personaje se le resta al mismo,
      * sino se establece energia como 0.
@@ -670,7 +670,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que aumenta la salud actual del personaje. Si este aumento es
+     * Método void que aumenta la salud actual del personaje. Si este aumento es
      * mayor al tope, establece como salud actual la maxima que puede tener el
      * personaje.
      * @param saludParam Puntos de salud a sumar al personaje.
@@ -684,7 +684,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que aumenta la energia actual del personaje. Si este aumento
+     * Método void que aumenta la energia actual del personaje. Si este aumento
      * es mayor al tope establece como energia actual la maxima que puede tener
      * el personaje.
      * @param energiaParam Puntos de energia a sumar al Personaje.
@@ -698,7 +698,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que crea una nueva alianza. Asigna a ésta al clan actual del
+     * Método void que crea una nueva alianza. Asigna a ésta al clan actual del
      * personaje y lo añade a la lista de Personajes que integran la alianza.
      * @param nombreAlianza Nombre de la alianza
      */
@@ -708,7 +708,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que desvincula al personaje de la alianza y establece que el
+     * Método void que desvincula al personaje de la alianza y establece que el
      * personaje no pertenece a ninguna.
      */
     public final void salirDeAlianza() {
@@ -719,7 +719,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un boolean si pudo añadir un nuevo aliado a la alianza
+     * Método que retorna un boolean si pudo añadir un nuevo aliado a la alianza
      * en la que se encuentra el personaje. Si el personaje llamador no
      * pertenece a ninguna alianza se crea una con el nombre "Alianza 1" por
      * defecto. Luego se agrega al nuevo aliado enviado como parametro a la
@@ -744,7 +744,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void utilizado para aumentar los puntos de fuerza, destreza y de
+     * Método void utilizado para aumentar los puntos de fuerza, destreza y de
      * inteligencia del personaje. Nunca estos atributos superan los maximos.
      * Una vez modificados los atributos mencionados actualiza los nuevos puntos
      * de ataque,defensa y magia del personaje.
@@ -766,7 +766,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que aumenta el nivel del personaje Si ya se encuentra en el
+     * Método void que aumenta el nivel del personaje Si ya se encuentra en el
      * nivel maximo no realiza cambios. Pero si no se alcanzo al nivel maximo se
      * actualizara la salud tope, la energia tope y el nivel del personaje hasta
      * que su experiencia sea menor a la de un nivel preestablecido. Luego se le
@@ -793,7 +793,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un boolean significando éste si el personaje tiene la
+     * Método que retorna un boolean significando éste si el personaje tiene la
      * cantidad suficiente de experiencia para aumentar el nivel o no. Si
      * retorna true aumento de nivel y false no.
      * @param exp Cantidad de experiencia que aumento el personaje
@@ -810,7 +810,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un entero con la experiencia equivalente del personaje
+     * Método que retorna un entero con la experiencia equivalente del personaje
      * que depende del nivel del mismo y de MULTIPLICADOREXP. MULTIPLICADOREXP
      * atributo estatico de la clase personaje.
      * @return retorna la experiencia brindada por el Personaje
@@ -821,7 +821,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un Objetc utilizado para clonar a un personaje.
+     * Método que retorna un Objetc utilizado para clonar a un personaje.
      * @throws CloneNotSupportedException Excepción de clonación cuando no está
      *             implementada
      * @return Retorna un Objetc con los atributos del personaje llamador.
@@ -832,7 +832,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un double con la distancia radial entre el personaje
+     * Método que retorna un double con la distancia radial entre el personaje
      * llamador y el personaje parametro.
      * @param p Personaje a calcular la distancia
      * @return La distancia entre los dos Personajes
@@ -842,7 +842,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un boolean. Si pudo realizar exitosamente o no la
+     * Método que retorna un boolean. Si pudo realizar exitosamente o no la
      * habilidad 1. Esta habilidad dependerá de la casta al que pertenece el
      * personaje Asesino, Guerrero o Hechicero. La energia del personaje debe
      * ser mayor a la minima para lograr la habilidad.
@@ -855,7 +855,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un boolean. Si pudo realizar exitosamente o no la
+     * Método que retorna un boolean. Si pudo realizar exitosamente o no la
      * habilidad 2. Esta habilidad dependerá de la casta al que pertenece el
      * personaje Asesino, Guerrero o Hechicero. La energia del personaje debe
      * ser mayor a la minima para lograr la habilidad.
@@ -868,7 +868,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo que retorna un boolean. Si pudo realizar exitosamente o no la
+     * Método que retorna un boolean. Si pudo realizar exitosamente o no la
      * habilidad 2. Esta habilidad dependerá de la casta Asesino,Guerrero o
      * Hechicero al que pertenece el personaje. La energia del personaje debe
      * ser mayor a la minima para lograr la habilidad.
@@ -881,7 +881,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo abstracto que retorna un boolean. Si pudo realizar exitosamente o
+     * Método abstracto que retorna un boolean. Si pudo realizar exitosamente o
      * no la habilidad. Esta habilidad dependerá de la raza al que pertenece el
      * personaje Humano, Orco o Elfo. La energia del personaje debe ser mayor a
      * la minima para lograr la habilidad, independientemente de la raza que
@@ -893,7 +893,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     public abstract boolean habilidadRaza1(Peleable atacado);
 
     /**
-     * Metodo abstracto implementado en cada raza. Que retorna un vector String
+     * Método abstracto implementado en cada raza. Que retorna un vector String
      * con los nombres de las habilidades de esa raza. Depende de la raza que
      * sea el personaje llamador, Humano, Orco o Elfo.
      * @param atacado Es el personaje al cual le realizará la habilidad el
@@ -903,7 +903,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     public abstract boolean habilidadRaza2(Peleable atacado);
 
     /**
-     * Metodo abstracto implementado en cada raza. Que retorna un vector String
+     * Método abstracto implementado en cada raza. Que retorna un vector String
      * con los nombres de las habilidades de esa raza. Depende de la raza que
      * sea el personaje llamador, Humano, Orco o Elfo.
      * @return Un array de Strings con los nombres de las habilidades.
@@ -911,7 +911,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     public abstract String[] getHabilidadesRaza();
 
     /**
-     * Metodo abstracto implementado en cada raza. Que retorna un entero con el
+     * Método abstracto implementado en cada raza. Que retorna un entero con el
      * bonus de salud. Depende de la raza que sea el personaje llamador Humano,
      * Orco o Elfo.
      * @return Retorna el entero con el bonus de salud.
@@ -919,7 +919,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     public abstract int getSaludBonus();
 
     /**
-     * Metodo abstracto implementado en cada raza. Que retorna un entero con el
+     * Método abstracto implementado en cada raza. Que retorna un entero con el
      * bonus de energia. Depende de la raza que sea el personaje llamador,
      * Humano, Orco o Elfo.
      * @return Retorna el entero con el bonus de energia.
@@ -927,7 +927,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     public abstract int getEnergiaBonus();
 
     /**
-     * Metodo abstracto implementado en cada raza. Que retorna un String con el
+     * Método abstracto implementado en cada raza. Que retorna un String con el
      * nombre de la raza que pertenece el personaje llamador Depende de la raza
      * que sea el personaje llamador Humano, Orco o Elfo.
      * @return Retorna el String con el nombre de la Raza del personaje.
@@ -1041,21 +1041,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	casta.setProbabilidadEvitarDanio(map.get("probEvitarDanio").doubleValue());
     }
 
-    public void actualizarAtributos(final ArrayList<String> atributos, final ArrayList<String> casta) // Lo
-											  // agregue
-											  // para
-											  // poder
-											  // actualizar
-											  // los
-											  // atributos
-											  // personajes
-											  // desde
-											  // atributos
-											  // del
-											  // PaquetePelear.
-											  // By
-											  // Monardo.
-											  // //
+    public void actualizarAtributos(final ArrayList<String> atributos, final ArrayList<String> casta)
+    // Lo agregue para poder actualizar los atributos personajes desde
+    // atributos del PaquetePelear. By Monardo.
+    // //
     {
 	salud = Integer.parseInt(atributos.get(2));
 	energia = Integer.parseInt(atributos.get(3));
@@ -1101,7 +1090,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
     }
 
     /**
-     * Metodo void que sobreescribe el atributo de puntos skill con el parametro
+     * Método void que sobreescribe el atributo de puntos skill con el parametro
      * enviado.
      * @param puntos la cantidad de puntos a asignar.
      */
